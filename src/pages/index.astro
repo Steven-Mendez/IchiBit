@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+import Roadmap from '../components/interactive/Roadmap';
+
+const lessons = await getCollection('lessons');
+
+// Prepare simplified data for the client component
+// Filter out drafts and sort by chapter number
+const roadmapData = lessons
+  .filter(lesson => !lesson.data.isDraft)
+  .sort((a, b) => a.data.chapterNumber - b.data.chapterNumber)
+  .map(lesson => ({
+    id: lesson.id,
+    data: {
+      chapterNumber: lesson.data.chapterNumber,
+      title: lesson.data.title,
+      description: lesson.data.description,
+    }
+  }));
+---
+
+<MainLayout title="Ruta de Aprendizaje" description="Tu viaje para dominar el japonés comienza aquí. Sigue la ruta y aprende paso a paso.">
+  <section class="py-12 text-center">
+    <h1 class="text-5xl font-extrabold mb-6 tracking-tight text-zinc-900 dark:text-zinc-100">
+      Tu Viaje en el <span class="text-[#F43F5E]">Japonés</span>
+    </h1>
+    <p class="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+      Aprende japonés conmigo. Mi cuaderno de notas interactivo donde documento mi viaje personal, paso a paso.
+    </p>
+  </section>
+
+  <section class="max-w-4xl mx-auto">
+    <Roadmap client:idle lessons={roadmapData} />
+  </section>
+</MainLayout>

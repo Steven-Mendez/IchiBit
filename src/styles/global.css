@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  /* Custom Furigana Styling based on ux_ux.md */
+  ruby rt {
+    @apply text-zinc-400 dark:text-zinc-500 font-normal;
+    font-size: 0.6em;
+    padding-bottom: 0.2em;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* Custom Scrollbar for BookContainer */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-zinc-200 dark:bg-zinc-800 rounded-full transition-colors;
+  }
+  .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    @apply bg-[#F43F5E]/40;
+  }
+
+  /* Compact horizontal scrollbar for page dots rail */
+  .custom-scrollbar-compact {
+    scrollbar-width: thin;
+    scrollbar-gutter: stable both-edges;
+  }
+  .custom-scrollbar-compact::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  .custom-scrollbar-compact::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar-compact::-webkit-scrollbar-thumb {
+    @apply bg-zinc-300/70 dark:bg-zinc-700/80 rounded-full;
+  }
+  .custom-scrollbar-compact:hover::-webkit-scrollbar-thumb {
+    @apply bg-[#F43F5E]/40;
+  }
+
+  /* Hide scrollbar but preserve horizontal scrolling */
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hidden::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}

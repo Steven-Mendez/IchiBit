@@ -1,0 +1,502 @@
+---
+chapterNumber: 1
+title: "Saludos y Frases Comunes: あいさつ/Aisatsu"
+description: "Aprende saludos esenciales y una base de vocales Hiragana para empezar a comunicarte."
+isDraft: false
+pages:
+  - title: "Bienvenida"
+  - title: "Saludos de Entrada"
+  - title: "Saludos de Despedida"
+  - title: "Otros Saludos: Agradecer"
+  - title: "Otros Saludos: Disculparse"
+  - title: "Presentarte"
+  - title: "Preguntas Basicas"
+  - title: "Registro: Casual y Formal"
+  - title: "Vocal あ (A)"
+  - title: "Vocal い (I)"
+  - title: "Vocal う (U)"
+  - title: "Vocal え (E)"
+  - title: "Vocal お (O)"
+  - title: "Práctica Guiada"
+  - title: "Repaso Rápido"
+  - title: "Examen"
+---
+import BookContainer from '../../components/interactive/BookContainer';
+import Page from '../../components/interactive/Page';
+import FlashcardDeck from '../../components/interactive/FlashcardDeck';
+import ComparisonTable from '../../components/interactive/ComparisonTable';
+import QuizModule from '../../components/interactive/QuizModule';
+import KanaKanjiDrawingPad from '../../components/interactive/KanaKanjiDrawingPad';
+import TermTooltip from '../../components/interactive/TermTooltip';
+import InfoCallout from '../../components/interactive/InfoCallout';
+import AudioPhraseCard from '../../components/interactive/AudioPhraseCard';
+import AudioPlayButton from '../../components/interactive/AudioPlayButton';
+import ModelResponseBuilder from '../../components/interactive/ModelResponseBuilder';
+
+<BookContainer client:idle chapterId={frontmatter.chapterNumber}>
+  <Page>
+    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-4">
+      <p class="text-[#F43F5E] font-bold mb-1 uppercase tracking-widest text-xs">Capítulo 1</p>
+      <h1 class="text-3xl font-bold !mt-0 !mb-2">Saludos y Frases Comunes: あいさつ/Aisatsu</h1>
+      <p class="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed italic">
+        Tu primera mision en japones: entrar con seguridad, presentarte y cerrar una conversacion corta con naturalidad.
+      </p>
+    </div>
+
+    ## Vamos a conversar en japones
+
+    Esta leccion esta pensada como una escena real de clase: llegas, saludas, te presentas, agradeces, te disculpas y te despides.
+
+    No necesitas memorizar todo hoy. Solo sigue el flujo y repite en voz alta: al final ya podras sostener un mini intercambio completo.
+
+    Hoy vas a practicar como **intercambiar saludos de manera sencilla** y sumaras una base de vocales Hiragana.
+
+    <InfoCallout title="Meta de comunicacion" icon="info">
+      Al terminar, podras iniciar y cerrar una conversacion corta con frases utiles.
+    </InfoCallout>
+
+    ### Ruta rapida
+
+    1. Saludos de entrada (mañana, mediodía, noche).
+    2. Saludos de despedida (informales y formales).
+    3. Agradecer y disculparse en contexto.
+    4. Vocales base del Hiragana.
+  </Page>
+
+  <Page>
+    ## Saludos de entrada
+
+    Segun la hora, el saludo cambia. En esta tabla veras cuando usar cada forma segun el contexto.
+
+    <ComparisonTable client:visible
+      caption="Saludos para iniciar el dia"
+      columns={["Hora / Contexto", "Japonés", "Lectura", "Significado"]}
+      highlightColumn={1}
+      rows={[
+        ["7:00 am", "おはよう", "Ohayou", { type: "tooltip", term: "Informal", meaning: "Se usa con amigos o personas de confianza.", prefix: "Buenos dias (", suffix: ")" }],
+        ["7:00 am (formal)", "おはようございます", "Ohayou gozaimasu", { type: "tooltip", term: "Formal", meaning: "Version respetuosa para profesor, cliente o desconocido.", prefix: "Buenos dias (", suffix: ")" }],
+        ["12:00 pm", "こんにちは", "Konnichiwa", "Hola / Buenas tardes"],
+        ["Noche (encuentro)", "こんばんは", "Konbanwa", "Buenas noches"]
+      ]}
+    />
+
+    <AudioPhraseCard
+      client:visible
+      prompt="Escucha y repite"
+      japanese="こんにちは"
+      reading="Konnichiwa"
+      audioSrc="/audio/konnichiwa.mp3"
+      audioLabel="Escuchar saludo"
+    />
+
+    ### Ejemplo de conversacion
+
+    - A: <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Saludo respetuoso por la mañana." />.
+    - B: <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Respuesta comun en contexto formal." />.
+    - A: <TermTooltip client:visible term="Konnichiwa" reading="こんにちは" meaning="Hola / Buenas tardes." example="Saludo comun durante el dia." />.
+    - B: <TermTooltip client:visible term="Konnichiwa" reading="こんにちは" meaning="Hola / Buenas tardes." example="Respuesta natural al mismo saludo." />.
+  </Page>
+
+  <Page>
+    ## Saludos de despedida
+
+    Para cerrar una conversacion, puedes usar opciones casuales o formales.
+
+    - **Casual entre amigos:** じゃあね (Ja ne) - "Nos vemos".
+    - **Mas formal:** さようなら (Sayounara) - "Adios".
+    - **Muy usado al terminar trabajo o estudio:** おつかれ (Otsukare) - "Buen trabajo".
+
+    <InfoCallout title="Consejo cultural" variant="neutral" icon="tip">
+      "Otsukare" se usa mucho entre companeros. No es una despedida literal, pero funciona muy bien al final del dia.
+    </InfoCallout>
+
+    <div class="not-prose my-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+      <span>Para cerrar esta parte, revisa estos tres terminos clave:</span>
+      <TermTooltip client:visible term="Ojigi" reading="おじぎ" meaning="Reverencia al saludar" example="Una pequena inclinacion al saludar." />
+      <span>,</span>
+      <TermTooltip client:visible term="Ja ne" reading="じゃあね" meaning="Despedida casual entre amigos." example="Con alguien de tu misma edad." />
+      <span>y</span>
+      <TermTooltip client:visible term="Sayounara" reading="さようなら" meaning="Adios mas formal o de separacion larga." example="Cuando no veras a alguien pronto." />
+      <span>.</span>
+    </div>
+
+    ### Ejemplo de conversacion
+
+    - A: <TermTooltip client:visible term="Ja ne" reading="じゃあね" meaning="Nos vemos / Chao (casual)." example="Despedida entre amigos o compañeros de confianza." />.
+    - B: <TermTooltip client:visible term="Jaa, mata" reading="じゃあ、また" meaning="Nos vemos luego." example="Despedida casual muy comun." />.
+    - A: <TermTooltip client:visible term="Otsukare" reading="おつかれ" meaning="Buen trabajo." example="Se usa al cerrar una jornada o actividad." />.
+  </Page>
+
+  <Page>
+    ## Otros saludos: agradecer
+
+    Cuando alguien te ayuda, estas dos frases cubren casi todo.
+    Si dudas, usa
+    <TermTooltip client:visible term="Arigatou gozaimasu" reading="ありがとうございます" meaning="Forma mas educada para dar las gracias." example="Con un profesor o en una tienda." />.
+
+    <div class="my-4 space-y-3 max-w-xl mx-auto w-full">
+      <div class="p-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-center">
+        <p class="text-3xl font-bold mb-1">ありがとう</p>
+        <p class="text-zinc-500 dark:text-zinc-400 mb-0">Arigatou - Gracias (informal)</p>
+      </div>
+      <div class="p-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-center">
+        <p class="text-3xl font-bold mb-1">ありがとうございます</p>
+        <p class="text-zinc-500 dark:text-zinc-400 mb-0">Arigatou gozaimasu - Gracias (formal)</p>
+      </div>
+    </div>
+
+    <InfoCallout title="Variante regional importante" variant="neutral" icon="info">
+      <p class="m-0">
+        Tambien existe <TermTooltip client:visible term="Ookini" reading="おおきに" meaning="Gracias (variante regional, muy asociada a Osaka/Kansai)." example="Se escucha en comercios y conversaciones cotidianas de la region." />.
+        El japones estandar de los libros te ayudara mucho, pero no siempre se habla igual en todo Japon. Por eso es util conocer estas variantes desde el inicio.
+      </p>
+    </InfoCallout>
+
+    ### Ejemplo de conversacion
+
+    - A: <TermTooltip client:visible term="Kore, douzo" reading="これ、どうぞ" meaning="Toma esto / Aqui tienes." example="Se usa al ofrecer algo." />.
+    - B: <TermTooltip client:visible term="Arigatou gozaimasu" reading="ありがとうございます" meaning="Muchas gracias (formal)." example="Agradecimiento recomendado en contexto educado." />.
+  </Page>
+
+  <Page>
+    ## Otros saludos: disculparse
+
+    Tambien hay dos expresiones muy usadas para disculpas. Esta pista ayuda:
+    <TermTooltip client:visible term="Sumimasen" reading="すみません" meaning="Disculpa respetuosa o para llamar la atencion." example="Sumimasen, sensei." />
+
+    <ComparisonTable client:visible
+      caption="Disculpas rapidas en japones"
+      columns={["Japonés", "Lectura", "Uso"]}
+      highlightColumn={0}
+      rows={[
+        ["ごめん", "Gomen", "Perdon casual con confianza"],
+        ["すみません", "Sumimasen", "Disculpa mas respetuosa o para llamar la atencion"]
+      ]}
+    />
+
+    En contextos nuevos o formales, empieza con **Sumimasen**.
+    <TermTooltip client:visible term="Gomen" reading="ごめん" meaning="Perdon casual; suena cercano." example="Gomen, me atrase." />
+
+    ### Ejemplo de conversacion
+
+    - A: <TermTooltip client:visible term="Sumimasen" reading="すみません" meaning="Disculpe / Perdón." example="Sirve para disculparte o llamar la atención con respeto." />.
+    - B: <TermTooltip client:visible term="Hai, daijoubu desu" reading="はい、だいじょうぶです" meaning="Si, esta bien / No pasa nada." example="Respuesta amable a una disculpa." />.
+  </Page>
+
+  <Page>
+    ## Presentarte
+
+    Aqui conectamos saludos con una presentacion corta para conversar desde el primer dia.
+
+    <ComparisonTable client:visible
+      caption="Frases clave para presentarte"
+      columns={["Japonés", "Lectura", "Uso"]}
+      highlightColumn={0}
+      rows={[
+        ["はじめまして", "Hajimemashite", "Mucho gusto / Encantado de conocerte"],
+        ["わたしは ___ です", "Watashi wa ___ desu", "Presentacion base, segura y educada"],
+        ["___ と もうします", "___ to moushimasu", "Forma mas formal para presentarte"],
+        ["どうぞよろしく", "Douzo yoroshiku", "Cierre amable de presentacion"]
+      ]}
+    />
+
+    <InfoCallout title="Atajo recomendado" variant="neutral" icon="tip">
+      Si no sabes que version usar, elige la forma simple: "Watashi wa ___ desu."
+    </InfoCallout>
+
+    <div class="not-prose my-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+      <span>Terminos clave para presentarte:</span>
+      <TermTooltip client:visible term="Hajimemashite" reading="はじめまして" meaning="Mucho gusto / Encantado de conocerte." example="Se usa al conocer a alguien por primera vez." />
+      <span>,</span>
+      <TermTooltip client:visible term="Watashi wa ___ desu" reading="わたしは ___ です" meaning="Me llamo / Soy ___." example="Forma base, segura y educada para presentarte." />
+      <span>y</span>
+      <TermTooltip client:visible term="Douzo yoroshiku" reading="どうぞよろしく" meaning="Mucho gusto / Quedo a tu cuidado." example="Cierre amable despues de presentarte." />
+      <span>.</span>
+    </div>
+
+    ### Ejemplo de conversacion
+
+    - A: <TermTooltip client:visible term="Hajimemashite" reading="はじめまして" meaning="Mucho gusto / Encantado de conocerte." example="Se usa al iniciar una presentacion." />.
+    - A: <TermTooltip client:visible term="Watashi wa Ana desu" reading="わたしは Ana です" meaning="Me llamo Ana." example="Forma simple recomendada para presentarte." />.
+    - A: <TermTooltip client:visible term="Douzo yoroshiku" reading="どうぞよろしく" meaning="Mucho gusto / Quedo a tu cuidado." example="Cierre cordial despues de decir tu nombre." />.
+  </Page>
+
+  <Page>
+    ## Preguntas basicas en conversacion
+
+    Estas dos preguntas aparecen mucho en una primera conversacion.
+
+    <ComparisonTable client:visible
+      caption="Preguntas frecuentes para iniciar charla"
+      columns={["Japonés", "Lectura", "Significado"]}
+      highlightColumn={0}
+      rows={[
+        ["お名前は？", "Onamae wa?", "Como te llamas?"],
+        ["お国は？", "Okuni wa?", "De que pais eres?"]
+      ]}
+    />
+
+    <ModelResponseBuilder client:visible />
+
+    ### Ejemplo de conversacion
+
+    - A: <TermTooltip client:visible term="Onamae wa?" reading="お名前は？" meaning="¿Cómo te llamas?" example="Pregunta básica en una primera presentación." />.
+    - B: <TermTooltip client:visible term="Watashi wa Luis desu" reading="わたしは Luis です" meaning="Me llamo Luis." example="Respuesta simple y recomendada." />.
+    - A: <TermTooltip client:visible term="Okuni wa?" reading="お国は？" meaning="¿De qué país eres?" example="Pregunta común para continuar la conversación." />.
+    - B: <TermTooltip client:visible term="Mekishiko desu" reading="メキシコです" meaning="Soy de Mexico." example="Respuesta corta de pais de origen." />.
+  </Page>
+
+  <Page>
+    ## Registro: casual y formal
+
+    Usa registro formal en clase, con personas nuevas o en contexto profesional.
+
+    <ComparisonTable client:visible
+      caption="Misma idea, distinto nivel de formalidad"
+      columns={["Nivel", "Ejemplo", "Nota"]}
+      highlightColumn={1}
+      rows={[
+        [
+          "Casual",
+          { type: "tooltip", term: "Boku wa ___", reading: "ぼくは ___", meaning: "Yo soy / Me llamo ___ (casual).", example: "Lo usan bastante niños y chicos; suena suave y cercano." },
+          "Casual y cercano; frecuente en niños y chicos"
+        ],
+        [
+          "Casual",
+          { type: "tooltip", term: "Ore wa ___", reading: "おれは ___", meaning: "Yo soy / Me llamo ___ (muy informal y fuerte).", example: "Puede sonar rudo o de superioridad si no hay confianza; evita usarlo al empezar." },
+          "Muy informal y fuerte; puede sonar dominante sin confianza"
+        ],
+        [
+          "Neutral/seguro",
+          { type: "tooltip", term: "Watashi wa ___ desu", reading: "わたしは ___ です", meaning: "Me llamo / Soy ___.", example: "Forma base recomendada para clase y contextos nuevos." },
+          "Version recomendada para empezar"
+        ],
+        [
+          "Formal",
+          { type: "tooltip", term: "Watakushi wa ___ to moushimasu", reading: "わたくしは ___ と もうします", meaning: "Permítame presentarme: soy/me llamo ___.", example: "Forma formal para presentaciones y contexto profesional." },
+          "Uso formal en presentaciones"
+        ]
+      ]}
+    />
+
+    <InfoCallout title="Regla practica" icon="info">
+      En esta leccion, prioriza "watashi + desu" como base. Las otras formas son referencia de contexto.
+    </InfoCallout>
+  </Page>
+
+  <Page>
+    ## Vocal あ (A)
+
+    Empezamos con la primera vocal del Hiragana.
+
+    <AudioPhraseCard
+      client:visible
+      prompt="Pronunciacion de la vocal"
+      japanese="あ"
+      reading="A"
+      audioSrc="/audio/a.mp3"
+      audioLabel="Escuchar A"
+    />
+
+    <KanaKanjiDrawingPad client:visible size="wide" character="あ" reading="a" strokes={3} />
+  </Page>
+
+  <Page>
+    ## Vocal い (I)
+
+    Segunda vocal: corta y facil de reconocer.
+
+    <AudioPhraseCard
+      client:visible
+      prompt="Pronunciacion de la vocal"
+      japanese="い"
+      reading="I"
+      audioSrc="/audio/i.mp3"
+      audioLabel="Escuchar I"
+    />
+
+    <KanaKanjiDrawingPad client:visible size="wide" character="い" reading="i" strokes={2} />
+  </Page>
+
+  <Page>
+    ## Vocal う (U)
+
+    Tercera vocal del bloque basico.
+
+    <AudioPhraseCard
+      client:visible
+      prompt="Pronunciacion de la vocal"
+      japanese="う"
+      reading="U"
+      audioSrc="/audio/u.mp3"
+      audioLabel="Escuchar U"
+    />
+
+    <KanaKanjiDrawingPad client:visible size="wide" character="う" reading="u" strokes={2} />
+  </Page>
+
+  <Page>
+    ## Vocal え (E)
+
+    Cuarta vocal. Repite varias veces para fijar sonido y forma.
+
+    <AudioPhraseCard
+      client:visible
+      prompt="Pronunciacion de la vocal"
+      japanese="え"
+      reading="E"
+      audioSrc="/audio/e.mp3"
+      audioLabel="Escuchar E"
+    />
+
+    <KanaKanjiDrawingPad client:visible size="wide" character="え" reading="e" strokes={2} />
+  </Page>
+
+  <Page>
+    ## Vocal お (O)
+
+    Ultima vocal del grupo base.
+
+    <AudioPhraseCard
+      client:visible
+      prompt="Pronunciacion de la vocal"
+      japanese="お"
+      reading="O"
+      audioSrc="/audio/o.mp3"
+      audioLabel="Escuchar O"
+    />
+
+    <KanaKanjiDrawingPad client:visible size="wide" character="お" reading="o" strokes={3} />
+  </Page>
+
+  <Page>
+    ## Practica guiada
+
+    Frase objetivo de practica:
+
+    <div class="my-8 p-8 rounded-3xl text-center border border-[#F43F5E]/20 bg-[#F43F5E]/5">
+      <p class="text-4xl font-bold mb-2">れんしゅうしましょう。</p>
+      <p class="text-xl font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
+        <TermTooltip client:visible term="Renshuu shimashou" reading="れんしゅうしましょう" meaning="Practiquemos." example="Expresion para invitar a practicar juntos." />
+      </p>
+      <p class="text-base text-zinc-500 dark:text-zinc-400 mb-0">Practiquemos</p>
+    </div>
+
+    Repite esta frase en voz alta 2 o 3 veces y despues practica el siguiente mini dialogo.
+
+    <InfoCallout title="Secuencia guiada" icon="info">
+      Sigue estos 7 pasos en orden. Si no entiendes una frase, pasa el cursor sobre ella.
+    </InfoCallout>
+
+    1. <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Inicio recomendado en clase." />.
+    2. <TermTooltip client:visible term="Hajimemashite" reading="はじめまして" meaning="Mucho gusto." example="Se usa al conocer a alguien por primera vez." />.
+    3. <TermTooltip client:visible term="Watashi wa ___ desu" reading="わたしは ___ です" meaning="Me llamo / Soy ___." example="Frase base para presentarte." />.
+    4. <TermTooltip client:visible term="Douzo yoroshiku" reading="どうぞよろしく" meaning="Mucho gusto / Quedo a tu cuidado." example="Cierre amable de la presentacion." />.
+    5. <TermTooltip client:visible term="Arigatou gozaimasu" reading="ありがとうございます" meaning="Muchas gracias (formal)." example="Agradecimiento educado." />.
+    6. <TermTooltip client:visible term="Sumimasen" reading="すみません" meaning="Disculpe / Perdon." example="Para disculparte o pedir atencion con respeto." />.
+    7. <TermTooltip client:visible term="Jaa, mata" reading="じゃあ、また" meaning="Nos vemos luego." example="Cierre casual y natural." />.
+
+    ### Conversacion completa sugerida
+
+    - A: <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Inicio educado de conversación en clase." />.
+    - B: <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Respuesta esperada al saludo." />.
+    - A: <TermTooltip client:visible term="Hajimemashite. Watashi wa Maria desu. Douzo yoroshiku." reading="はじめまして。わたしは Maria です。どうぞよろしく。" meaning="Mucho gusto. Me llamo Maria. Encantada." example="Presentación completa para primer encuentro." />.
+    - B: <TermTooltip client:visible term="Kochira koso, yoroshiku" reading="こちらこそ、よろしく" meaning="Igualmente, mucho gusto." example="Respuesta comun despues de 'douzo yoroshiku'." />. <TermTooltip client:visible term="Arigatou gozaimasu" reading="ありがとうございます" meaning="Muchas gracias (formal)." example="Agradecimiento educado durante la interacción." />.
+    - A: <TermTooltip client:visible term="Mou ichido onegaishimasu" reading="もういちど おねがいします" meaning="Una vez mas, por favor." example="Para pedir repeticion de forma amable." />.
+    - B: <TermTooltip client:visible term="Hai. Jaa, mata." reading="はい。じゃあ、また。" meaning="Sí. Nos vemos luego." example="Cierre breve y natural de la conversación." />.
+  </Page>
+
+  <Page>
+    ## Repaso rapido con tarjetas
+
+    <FlashcardDeck client:visible size="wide" showReadingOnFront={true} cards={[
+      { japanese: "おはよう", reading: "Ohayou", translation: "Buenos dias (informal)", hint: { term: "Informal", meaning: "Se usa con amigos o personas de confianza.", example: "Al llegar al salon con tus companeros." } },
+      { japanese: "おはようございます", reading: "Ohayou gozaimasu", translation: "Buenos dias (formal)", hint: { term: "Formal", meaning: "Version respetuosa para profesor o contexto laboral.", example: "Al saludar a un profesor." } },
+      { japanese: "こんにちは", reading: "Konnichiwa", translation: "Hola / Buenas tardes", audioSrc: "/audio/konnichiwa.mp3", hint: { term: "Uso", meaning: "Muy comun desde mediodia hasta la tarde." } },
+      { japanese: "こんばんは", reading: "Konbanwa", translation: "Buenas noches", hint: { term: "Contexto", meaning: "Se usa cuando encuentras a alguien de noche." } },
+      { japanese: "ありがとう", reading: "Arigatou", translation: "Gracias", hint: { term: "Cercania", meaning: "Forma casual de agradecer." } },
+      { japanese: "ありがとうございます", reading: "Arigatou gozaimasu", translation: "Gracias (formal)", hint: { term: "Cortesia", meaning: "Forma recomendada cuando no conoces a la persona." } },
+      { japanese: "ごめん", reading: "Gomen", translation: "Perdon (casual)", hint: { term: "Disculpa casual", meaning: "Suena cercano y directo." } },
+      { japanese: "すみません", reading: "Sumimasen", translation: "Disculpe / Perdon (formal)", hint: { term: "Disculpa formal", meaning: "Sirve para pedir perdon o llamar la atencion." } },
+      { japanese: "さようなら", reading: "Sayounara", translation: "Adios", hint: { term: "Despedida formal", meaning: "Mas formal o para separaciones largas." } },
+      { japanese: "おつかれ", reading: "Otsukare", translation: "Buen trabajo", hint: { term: "Cultura", meaning: "Muy comun para cerrar el dia entre companeros." } },
+      { japanese: "はじめまして", reading: "Hajimemashite", translation: "Mucho gusto", hint: { term: "Primer encuentro", meaning: "Se usa al conocer a alguien por primera vez." } },
+      { japanese: "わたしは ___ です", reading: "Watashi wa ___ desu", translation: "Me llamo / Soy ___", hint: { term: "Base segura", meaning: "Frase estandar para presentarte en casi cualquier contexto." } },
+      { japanese: "どうぞよろしく", reading: "Douzo yoroshiku", translation: "Mucho gusto / Quedo a tu cuidado", hint: { term: "Cierre social", meaning: "Expresa buena disposicion al iniciar relacion." } },
+      { japanese: "お名前は？", reading: "Onamae wa?", translation: "Como te llamas?" },
+      { japanese: "あ", reading: "A", translation: "Vocal A" },
+      { japanese: "い", reading: "I", translation: "Vocal I" },
+      { japanese: "う", reading: "U", translation: "Vocal U" },
+      { japanese: "え", reading: "E", translation: "Vocal E" },
+      { japanese: "お", reading: "O", translation: "Vocal O" }
+    ]} />
+  </Page>
+
+  <Page>
+    ## Examen del capitulo 1
+
+    <QuizModule client:visible questions={[
+      {
+        text: "Cual usarias como 'Buenos dias' formal?",
+        options: ["Ohayou", "Ohayou gozaimasu", "Konnichiwa", "Gomen"],
+        correctAnswer: 1
+      },
+      {
+        text: "Que frase usas para presentarte de forma base y educada?",
+        options: ["Otsukare", "Watashi wa ___ desu", "Jaa, mata", "Gomen"],
+        correctAnswer: 1
+      },
+      {
+        text: "Que saludo usas para encontrarte con alguien de noche?",
+        options: ["Konbanwa", "Sayounara", "Arigatou", "Ja ne"],
+        correctAnswer: 0
+      },
+      {
+        text: "Que significa 'Hajimemashite'?",
+        options: ["Buenas noches", "Disculpe", "Mucho gusto", "Hasta luego"],
+        correctAnswer: 2
+      },
+      {
+        text: "Que dice este audio?",
+        audioSrc: "/audio/konnichiwa.mp3",
+        audioLabel: "Escuchar frase",
+        options: ["Ohayou", "Konnichiwa", "Sumimasen", "Arigatou"],
+        correctAnswer: 1
+      },
+      {
+        text: "Cual es la opcion mas segura para disculparte en un contexto formal?",
+        options: ["Gomen", "Ja ne", "Sumimasen", "Ohayou"],
+        correctAnswer: 2
+      },
+      {
+        text: "Si quieres agradecer de forma formal, cual eliges?",
+        options: ["Arigatou", "Arigatou gozaimasu", "Sumimasen", "Otsukare"],
+        correctAnswer: 1
+      },
+      {
+        text: "Si terminas una conversacion y quieres decir 'nos vemos luego', cual eliges?",
+        options: ["Jaa, mata", "Hajimemashite", "Onamae wa?", "Watakushi wa ___ to moushimasu"],
+        correctAnswer: 0
+      },
+      {
+        text: "Que vocal suena en este audio?",
+        audioSrc: "/audio/a.mp3",
+        audioLabel: "Escuchar vocal",
+        options: ["A", "I", "U", "E"],
+        correctAnswer: 0
+      },
+      {
+        text: "Escucha el audio y elige el hiragana correcto",
+        audioSrc: "/audio/u.mp3",
+        audioLabel: "Escuchar vocal",
+        options: ["あ", "い", "う", "え"],
+        correctAnswer: 2
+      },
+      {
+        text: "Cual de estas vocales Hiragana representa el sonido 'A'?",
+        options: ["あ", "い", "う", "え"],
+        correctAnswer: 0
+      }
+    ]} />
+  </Page>
+</BookContainer>

@@ -1,0 +1,156 @@
+---
+chapterNumber: 0
+title: "Sobre IchiBit"
+description: "Conoce el origen y el propósito de este cuaderno de notas interactivo."
+isDraft: false
+pages:
+  - title: "¿Qué es IchiBit?"
+  - title: "La Técnica Feynman"
+  - title: "Tecnologías"
+  - title: "Showcase Interactivo"
+  - title: "Libertad de Aprendizaje"
+  - title: "Licencia"
+---
+import BookContainer from '../../components/interactive/BookContainer';
+import Page from '../../components/interactive/Page';
+import ComparisonTable from '../../components/interactive/ComparisonTable';
+import TermTooltip from '../../components/interactive/TermTooltip';
+import AudioPlayButton from '../../components/interactive/AudioPlayButton';
+import FlashcardDeck from '../../components/interactive/FlashcardDeck';
+import KanaKanjiDrawingPad from '../../components/interactive/KanaKanjiDrawingPad';
+import QuizModule from '../../components/interactive/QuizModule';
+
+<BookContainer client:idle chapterId={frontmatter.chapterNumber}>
+  <Page>
+    <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-4">
+      <p class="text-[#F43F5E] font-bold mb-1 uppercase tracking-widest text-xs">Capítulo 0</p>
+      <h1 class="text-3xl font-bold !mt-0 !mb-2">Sobre IchiBit 🇯🇵</h1>
+      <p class="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed italic">
+        El origen de este cuaderno de notas interactivo.
+      </p>
+    </div>
+
+    ## ¿Qué es IchiBit?
+    
+    **IchiBit** es un diario de aprendizaje personal diseñado para ayudarme a dominar el japonés como hablante nativo de español. 
+    
+    El nombre nace de la unión de **"Ichi"** (一 - uno en japonés) y **"Bit"** (la unidad mínima de información en computación). 
+    
+    Esta combinación representa mi filosofía de aprendizaje: no intentar memorizar todo de golpe, sino absorber el conocimiento **bit a bit**, un pequeño paso a la vez, hasta construir algo grande.
+    
+    Aunque este proyecto está hecho principalmente **"por mí y para mí"**, es de código abierto y puedes encontrarlo en [GitHub](https://github.com/Steven-Mendez/IchiBit) por si mi camino puede ayudar a otros estudiantes en su propio viaje.
+  </Page>
+
+  <Page>
+    ## La Técnica Feynman
+    
+    Este proyecto sigue la **Técnica Feynman**: 
+    
+    Al construir esta ruta interactiva y explicar los conceptos en mis propias palabras, puedo entender y recordar mejor mis lecciones. 
+    
+    > Si no puedes explicarlo de forma sencilla, no lo entiendes lo suficiente. — Albert Einstein.
+    
+    Cada componente, cada explicación y cada cuestionario es una forma de reforzar lo que voy aprendiendo en mis clases.
+  </Page>
+
+  <Page>
+    ## El Motor de IchiBit
+    
+    Para que este cuaderno sea interactivo, utilizo varias tecnologías modernas:
+    
+    - **Astro:** El esqueleto que permite que todo cargue rápido.
+    - **MDX:** Me permite escribir lecciones en Markdown pero con "superpoderes" interactivos.
+    - **Preact:** Los pequeños widgets como los cuestionarios y las tarjetas.
+    - **Tailwind CSS:** Para que todo se vea limpio y moderno.
+    - **Nano Stores:** Para guardar tu progreso (y el mío) en el navegador.
+  </Page>
+
+  <Page>
+    ## Showcase Interactivo
+    
+    Aquí puedes ver y probar las herramientas que he diseñado para este cuaderno:
+    
+    ### 1. Pronunciación
+    Escucha la lectura correcta para entrenar tu oído.
+    <div class="my-6 p-6 bg-zinc-50 dark:bg-zinc-800/50 rounded-3xl border border-zinc-100 dark:border-zinc-800 flex items-center justify-around gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <div class="text-2xl font-bold text-[#F43F5E]">あ</div>
+        <AudioPlayButton client:visible src="/audio/a.mp3" label="Escuchar 'a'" />
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="text-2xl font-bold text-[#F43F5E]">い</div>
+        <AudioPlayButton client:visible src="/audio/i.mp3" label="Escuchar 'i'" />
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="text-2xl font-bold text-[#F43F5E]">う</div>
+        <AudioPlayButton client:visible src="/audio/u.mp3" label="Escuchar 'u'" />
+      </div>
+    </div>
+
+    ### 2. Escritura y Lectura (Furigana)
+    Practica el orden de los trazos y visualiza la lectura sobre los símbolos.
+    <div class="my-6 space-y-4">
+      <div class="text-center p-4 bg-white dark:bg-zinc-900 border-2 border-dashed border-[#F43F5E] rounded-2xl">
+        <p class="text-sm text-zinc-400 mb-2 italic">Ejemplo de Furigana:</p>
+        <div class="text-4xl font-bold">
+          <ruby>日本語<rt>nihongo</rt></ruby>
+        </div>
+      </div>
+      <KanaKanjiDrawingPad client:visible character="あ" reading="a" strokes={3} />
+    </div>
+
+    ### 3. Memoria Visual y Comparación
+    Usa tarjetas para repasar y tablas para comparar conceptos.
+    <div class="my-6 space-y-6">
+      <FlashcardDeck client:visible cards={[
+        { japanese: "日本語", reading: "Nihongo", translation: "Idioma Japonés" },
+        { japanese: "本", reading: "Hon", translation: "Libro" }
+      ]} />
+      
+      <ComparisonTable client:visible
+        caption="Ejemplo de Tabla Comparativa"
+        columns={["Concepto", "Japonés", "Español"]}
+        highlightColumn={1}
+        rows={[
+          ["Saludo", "Konnichiwa", "Hola"],
+          ["Despedida", "Sayounara", "Adiós"]
+        ]}
+      />
+    </div>
+
+    ### 4. Evaluación Interactiva
+    Prueba este pequeño examen de ejemplo.
+    <QuizModule client:visible questions={[
+      { 
+        text: "¿Qué significa 'Ichi' (一)?", 
+        options: ["Uno", "Cero", "Bit", "Japón"], 
+        correctAnswer: 0 
+      }
+    ]} />
+    
+    ### 5. Pistas Contextuales
+    Pasa el ratón sobre este término: <TermTooltip client:visible term="Sensei" reading="せんせい" meaning="Maestro / Profesor" example="Tanaka-sensei wa yasashii desu." />.
+  </Page>
+
+  <Page>
+    ## Libertad de Aprendizaje
+    
+    Este no es un curso rígido con bloqueos. Mi cuaderno es un espacio de consulta libre:
+    
+    1. **Sin Restricciones:** Todos los capítulos están abiertos desde el primer momento. Puedes saltar a cualquier tema que te interese.
+    2. **Autoevaluación:** Los exámenes están ahí para que midas tu propio progreso, no para limitarte. 
+    3. **Persistencia:** Si decides completar los cuestionarios, tu puntuación se guardará automáticamente para que sepas qué temas ya dominas (marcándolos como completados).
+  </Page>
+
+  <Page>
+    ## Licencia y Uso
+    
+    Este proyecto utiliza la licencia [PolyForm Noncommercial 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0/). 
+    
+    - **Uso Personal:** Eres libre de hacer un "fork" y usarlo para tu propio aprendizaje.
+    - **No Comercial:** No puedes vender este proyecto ni usarlo con fines de lucro.
+    - **Atribución:** Por favor, mantén la atribución original al creador.
+    
+    ¡Espero que disfrutes explorando mis notas tanto como yo disfruto escribiéndolas!
+  </Page>
+</BookContainer>

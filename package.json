@@ -1,0 +1,33 @@
+{
+  "name": "retrograde-remnant",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.7",
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/preact": "^5.0.0",
+    "@nanostores/persistent": "^1.3.3",
+    "@nanostores/preact": "^1.0.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.0.4",
+    "canvas-confetti": "^1.9.4",
+    "nanostores": "^1.2.0",
+    "preact": "^10.29.0",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0"
+  }
+}

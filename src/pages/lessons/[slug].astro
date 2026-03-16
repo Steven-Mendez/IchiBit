@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const lessons = await getCollection('lessons');
+  return lessons
+    .filter(lesson => !lesson.data.isDraft)
+    .map(lesson => ({
+      params: { slug: lesson.id },
+      props: { lesson },
+    }));
+}
+
+const { lesson } = Astro.props;
+const { Content } = await render(lesson);
+---
+
+<MainLayout title={lesson.data.title} description={lesson.data.description} currentId={lesson.id} showSidebar={true}>
+  <article class="flex-1 flex flex-col min-h-0">
+    <div class="lesson-content flex-1 flex flex-col min-h-0">
+      <Content />
+    </div>
+  </article>
+</MainLayout>
+
