@@ -72,7 +72,7 @@ import ModelResponseBuilder from '../../components/interactive/ModelResponseBuil
       columns={["Hora (Aprox)", "Japonés", "Significado", "Matiz"]}
       highlightColumn={1}
       rows={[
-        ["5:00 - 10:30", { type: "tooltip", term: "おはよう", reading: "Ohayou", meaning: "Buenos días" }, "Buenos días", "Si es formal, añade 'gozaimasu'"],
+        ["5:00 - 10:30", { type: "tooltip", term: "おはようございます", reading: "Ohayou gozaimasu", meaning: "Buenos días" }, "Buenos días", "Forma estándar y educada de la mañana"],
         ["10:30 - 18:00", { type: "tooltip", term: "こんにちは", reading: "Konnichiwa", meaning: "Hola / Buenas tardes" }, "Hola", "El más usado durante el día"],
         ["18:00 - Noche", { type: "tooltip", term: "こんばんは", reading: "Konbanwa", meaning: "Buenas noches" }, "Buenas noches", "Solo al encontrarse, no para dormir"]
       ]}
@@ -103,12 +103,12 @@ import ModelResponseBuilder from '../../components/interactive/ModelResponseBuil
       <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
         <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
           <div class="text-3xl font-bold text-[#F43F5E]">
-            <TermTooltip client:visible term="じゃあね" reading="Ja ne" meaning="Nos vemos / Chao" />
+            <TermTooltip client:visible term="じゃあ、また。" reading="Jaa, mata." meaning="Nos vemos / Chao" />
           </div>
           <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500 w-fit">Informal / Casual</span>
         </div>
         <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-          Es la forma más común entre amigos y familia. Es corta, cercana y transmite que volverás a ver a esa persona pronto.
+          Son despedidas cortas y naturales entre amigos. Incluyen variaciones como "jaa", "mata", "mata ne" y "jaa ne".
         </p>
       </div>
 
@@ -120,25 +120,37 @@ import ModelResponseBuilder from '../../components/interactive/ModelResponseBuil
           <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500 w-fit">Formal / Distante</span>
         </div>
         <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-          Tiene un peso de despedida larga o definitiva. Se usa con profesores o personas de mucho respeto, pero rara vez con amigos.
+          Es formal, pero sobre todo suena a despedida larga o definitiva. En la vida diaria se usa poco y suele reservarse para contextos muy puntuales.
         </p>
       </div>
 
       <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
         <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
           <div class="text-3xl font-bold text-[#F43F5E]">
-            <TermTooltip client:visible term="おつかれ" reading="Otsukare" meaning="Buen trabajo / Descansa" />
+            <TermTooltip client:visible term="お先に失礼します" reading="O-saki ni shitsurei shimasu" meaning="Con permiso, me retiro antes" />
+          </div>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500 w-fit">Laboral / Formal</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          Frase típica al salir antes de la oficina, aula o trabajo en grupo. Muestra respeto al retirarte.
+        </p>
+      </div>
+
+      <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
+          <div class="text-3xl font-bold text-[#F43F5E]">
+            <TermTooltip client:visible term="おつかれさまでした" reading="Otsukaresama deshita" meaning="Gracias por tu esfuerzo" />
           </div>
           <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500 w-fit">Laboral / Académico</span>
         </div>
         <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-          Se usa al terminar una jornada de estudio o trabajo. Reconoce el esfuerzo del otro y sirve como una despedida muy natural en esos entornos.
+          Se usa al cerrar una jornada o actividad. Reconoce el esfuerzo del otro y tambien funciona como despedida en ese contexto.
         </p>
       </div>
     </div>
 
     <InfoCallout title="El error común" variant="neutral" icon="tip">
-      No uses <TermTooltip client:visible term="さようなら" reading="Sayounara" /> con tus amigos; pensarán que te vas para siempre. Mejor usa <TermTooltip client:visible term="またね" reading="Mata ne" meaning="Hasta luego" />.
+      Evita usar <TermTooltip client:visible term="さようなら" reading="Sayounara" /> para despedidas normales entre amigos: puede sonar muy definitivo. Mejor usa <TermTooltip client:visible term="またね" reading="Mata ne" meaning="Hasta luego" />.
     </InfoCallout>
   </Page>
 
@@ -163,6 +175,10 @@ import ModelResponseBuilder from '../../components/interactive/ModelResponseBuil
         <p class="text-sm text-zinc-600 dark:text-zinc-400 font-medium">Ante la duda con desconocidos o mayores, usa siempre esta versión.</p>
       </div>
     </div>
+
+    <InfoCallout title="Frases base para agradecer" variant="neutral" icon="tip">
+      Usa <TermTooltip client:visible term="ありがとうございます" reading="Arigatou gozaimasu" meaning="Muchas gracias" /> como opcion segura; <TermTooltip client:visible term="すみません" reading="Sumimasen" meaning="Disculpe / Gracias por la molestia" /> tambien puede sonar a agradecimiento humilde, y <TermTooltip client:visible term="いいえ" reading="Iie" meaning="No / De nada" /> puede responderse como "de nada" en ciertos contextos.
+    </InfoCallout>
 
     ### Matices rápidos de agradecimiento:
     
@@ -234,6 +250,10 @@ import ModelResponseBuilder from '../../components/interactive/ModelResponseBuil
         </div>
       </div>
     </div>
+
+    <InfoCallout class="mt-6" title="Respuesta breve en disculpas" variant="neutral" icon="tip">
+      Cuando alguien te pide perdon, puedes responder con <TermTooltip client:visible term="いいえ" reading="Iie" meaning="No / Esta bien" /> para quitar tension. En contextos mas directos, <TermTooltip client:visible term="はい" reading="Hai" meaning="Si / Entendido" /> confirma que escuchaste.
+    </InfoCallout>
 
     <InfoCallout class="mt-6" title="¡Puntualidad Nivel Ninja!" variant="neutral" icon="tip">
       <p class="m-0">
