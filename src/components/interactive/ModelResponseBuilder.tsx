@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import TermTooltip from './TermTooltip';
 
 interface Props {
   initialName?: string;
@@ -6,61 +7,71 @@ interface Props {
 
 export default function ModelResponseBuilder({ initialName = '' }: Props) {
   const [name, setName] = useState(initialName);
-  const safeName = name.trim() || 'tu nombre';
-  const hasName = Boolean(name.trim());
+  const safeName = name.trim();
+  const hasName = Boolean(safeName);
 
   return (
-    <div class="my-4 overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-sm">
-      <div class="px-4 py-3 border-b border-zinc-200 dark:border-zinc-700 bg-zinc-50/80 dark:bg-zinc-800/50">
-        <p class="m-0 text-xs font-semibold tracking-wide uppercase text-zinc-500 dark:text-zinc-400">
-          Respuesta interactiva
+    <div class="mt-8 mb-6 w-full">
+
+      {/* Section marker */}
+      <div class="flex items-center gap-3 mb-7">
+        <div class="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
+        <span class="text-[10px] font-black uppercase tracking-widest text-[#F43F5E] bg-[#F43F5E]/10 px-3 py-1 rounded-full shrink-0">
+          Tu turno · Rellena el hueco
+        </span>
+        <div class="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
+      </div>
+
+      {/* Fill in the blank sentence */}
+      <div class="text-center">
+        <p class="text-2xl md:text-3xl m-0 font-medium leading-relaxed flex flex-wrap items-center justify-center gap-x-1.5 gap-y-2">
+          <TermTooltip term="わたし" reading="Watashi" meaning="Yo (neutro)" />
+          <TermTooltip term="は" reading="wa" meaning="(partícula de tema)" />
+
+          <span class="relative inline-flex items-center mx-1 md:mx-2">
+            <input
+              type="text"
+              value={name}
+              maxLength={20}
+              onInput={(event) => setName((event.target as HTMLInputElement).value)}
+              placeholder="tu nombre"
+              class={`bg-transparent border-b-2 outline-none text-center transition-all duration-300 px-1 py-0.5 placeholder:text-zinc-300 dark:placeholder:text-zinc-600 font-bold text-[#F43F5E] ${
+                hasName
+                  ? 'border-[#F43F5E]'
+                  : 'border-dashed border-zinc-300 dark:border-zinc-600 focus:border-solid focus:border-[#F43F5E] min-w-[100px]'
+              }`}
+              style={{ width: hasName ? `calc(${safeName.length}ch + 1.5rem)` : undefined }}
+            />
+          </span>
+
+          <TermTooltip term="です。" reading="desu." meaning="(verbo ser)" />
+        </p>
+
+        <p class={`text-xs text-zinc-400 mt-3 m-0 transition-opacity duration-300 ${hasName ? 'opacity-0' : 'opacity-100'}`}>
+          Haz clic y escribe tu nombre
         </p>
       </div>
 
-      <div class="p-4">
-        <label class="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-2" for="modelo-nombre">
-          Escribe tu nombre para completar el espacio subrayado
-        </label>
-        <input
-          id="modelo-nombre"
-          type="text"
-          value={name}
-          onInput={(event) => setName((event.target as HTMLInputElement).value)}
-          placeholder="Ejemplo: Ana"
-          class="w-full rounded-xl border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/70 px-3 py-2.5 text-sm text-zinc-800 dark:text-zinc-100 outline-none focus:ring-2 focus:ring-[#F43F5E]/40 focus:border-[#F43F5E]"
-        />
-
-        <p class={`m-0 mt-2 text-xs ${hasName ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-500 dark:text-zinc-400'}`}>
-          {hasName ? 'Perfecto, ya tienes tu respuesta personalizada.' : 'Completa el espacio para practicar tu presentación.'}
-        </p>
-
-        <div class="mt-3 p-3 rounded-xl border border-[#F43F5E]/20 bg-[#F43F5E]/5 space-y-2">
-          <p class="m-0 text-xs text-zinc-500 dark:text-zinc-400">Respuesta modelo</p>
-
-          <p class="m-0 text-2xl font-bold leading-tight">
-            わたしは{' '}
-            <span class={`inline-block min-w-24 px-1 text-center border-b-2 ${hasName ? 'border-[#F43F5E] text-[#F43F5E]' : 'border-zinc-300 dark:border-zinc-600 text-zinc-400 dark:text-zinc-500'}`}>
-              {safeName}
-            </span>{' '}
-            です。
+      {/* Pronunciation & meaning feedback */}
+      <div class={`mt-4 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-8 transition-opacity duration-500 ${hasName ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <div class="text-center">
+          <p class="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-1 m-0">Pronunciación</p>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 m-0">
+            Watashi wa <span class="font-bold text-[#F43F5E]">{safeName}</span> desu.
           </p>
-
-          <p class="m-0 text-sm text-zinc-600 dark:text-zinc-400">
-            Watashi wa{' '}
-            <span class={`inline-block min-w-20 px-1 text-center border-b ${hasName ? 'border-zinc-400 dark:border-zinc-500 text-zinc-700 dark:text-zinc-300' : 'border-zinc-300 dark:border-zinc-600 text-zinc-400 dark:text-zinc-500'}`}>
-              {safeName}
-            </span>{' '}
-            desu.
-          </p>
-
-          <p class="m-0 text-sm text-zinc-500 dark:text-zinc-400">
-            Me llamo{' '}
-            <span class={`inline-block min-w-20 px-1 text-center border-b ${hasName ? 'border-zinc-400 dark:border-zinc-500 text-zinc-600 dark:text-zinc-300' : 'border-zinc-300 dark:border-zinc-600 text-zinc-400 dark:text-zinc-500'}`}>
-              {safeName}
-            </span>.
+        </div>
+        <div class="hidden sm:block w-px h-8 bg-zinc-100 dark:bg-zinc-800" />
+        <div class="text-center">
+          <p class="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-1 m-0">Significado</p>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 m-0">
+            Yo soy <span class="font-bold text-[#F43F5E]">{safeName}</span>.
           </p>
         </div>
       </div>
+
+      {/* Closing rule */}
+      <div class="mt-7 h-px bg-zinc-100 dark:bg-zinc-800" />
+
     </div>
   );
 }

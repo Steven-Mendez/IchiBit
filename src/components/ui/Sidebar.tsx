@@ -1,6 +1,35 @@
 import { useStore } from '@nanostores/preact';
+import { useState, useRef } from 'preact/hooks';
+import { createPortal } from 'preact/compat';
 import { currentPageIndex, activeSectionId, setPage, navigateToSection } from '../../store/lesson';
 import { progressStore } from '../../store/progress';
+
+function TruncatedTitle({ title }: { title: string }) {
+  const spanRef = useRef<HTMLSpanElement>(null);
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
+
+  const show = () => {
+    const el = spanRef.current;
+    if (!el || el.scrollWidth <= el.clientWidth) return;
+    const rect = el.getBoundingClientRect();
+    setPos({ top: rect.bottom + 6, left: rect.left });
+  };
+
+  return (
+    <span ref={spanRef} class="truncate flex-1" onMouseEnter={show} onMouseLeave={() => setPos(null)}>
+      {title}
+      {pos && createPortal(
+        <div
+          class="fixed z-[9999] px-3 py-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-semibold rounded-xl shadow-xl pointer-events-none max-w-xs"
+          style={{ top: pos.top, left: pos.left }}
+        >
+          {title}
+        </div>,
+        document.body
+      )}
+    </span>
+  );
+}
 
 interface Section {
   id: string;
@@ -64,7 +93,7 @@ export default function Sidebar({ lessons, currentId }: Props) {
                 `}>
                   {lesson.data.chapterNumber}
                 </span>
-                <span class="truncate flex-1">{lesson.data.title}</span>
+                <TruncatedTitle title={lesson.data.title} />
               </a>
 
               {/* Páginas y Secciones (Solo si el capítulo está activo) */}

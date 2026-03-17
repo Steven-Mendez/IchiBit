@@ -134,7 +134,7 @@ export default function KanaKanjiDrawingPad({ chapterId: propChapterId, characte
     setPaths(prev => prev.slice(0, -1));
   };
 
-  const wrapperSizeClass = size === 'wide' ? 'w-full max-w-4xl' : 'max-w-sm';
+  const wrapperSizeClass = size === 'wide' ? 'w-full max-w-4xl mx-auto' : 'w-full';
   const canvasWrapperClass =
     size === 'wide'
       ? 'relative aspect-square w-full max-w-[420px] mx-auto bg-zinc-50 dark:bg-zinc-950 rounded-2xl border-2 border-zinc-100 dark:border-zinc-800 overflow-hidden touch-none'
@@ -145,7 +145,7 @@ export default function KanaKanjiDrawingPad({ chapterId: propChapterId, characte
       : 'grid grid-cols-3 gap-2 mt-4';
 
   return (
-    <div class={`my-4 p-4 bg-white dark:bg-zinc-900 border-2 border-zinc-100 dark:border-zinc-800 rounded-2xl shadow-lg mx-auto ${wrapperSizeClass}`}>
+    <div class={`p-4 bg-white dark:bg-zinc-900 border-2 border-zinc-100 dark:border-zinc-800 rounded-2xl shadow-lg ${wrapperSizeClass}`}>
       {size !== 'wide' && (
         <div class="mb-3">
           <span class="text-[10px] font-bold text-[#F43F5E] uppercase tracking-widest">Práctica de Escritura</span>

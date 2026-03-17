@@ -124,7 +124,7 @@ export default function TermTooltip({
   return (
     <span 
       ref={triggerRef}
-      class="inline-block"
+      class="inline"
       onMouseEnter={openTooltip}
       onMouseLeave={scheduleClose}
     >

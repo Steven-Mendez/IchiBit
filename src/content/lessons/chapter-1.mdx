@@ -1,7 +1,7 @@
 ---
 chapterNumber: 1
-title: "Saludos y Frases Comunes: あいさつ/Aisatsu"
-description: "Aprende saludos esenciales y una base de vocales Hiragana para empezar a comunicarte."
+title: "Saludos, Presentación y Escritura: あいさつ"
+description: "Aprende a saludar, presentarte y descubre cómo funciona el sistema de escritura japonés antes de tus primeras letras."
 isDraft: false
 pages:
   - title: "Bienvenida"
@@ -10,14 +10,19 @@ pages:
   - title: "Otros Saludos: Agradecer"
   - title: "Otros Saludos: Disculparse"
   - title: "Presentarte"
-  - title: "Preguntas Basicas"
+  - title: "Preguntas Básicas"
   - title: "Registro: Casual y Formal"
+  - title: "Práctica de Diálogo"
+  - title: "El Rompecabezas Japonés"
+  - title: "Kanji: El Corazón"
+  - title: "Katakana: El Puente"
+  - title: "Hiragana: El Alma"
+  - title: "La Mezcla Perfecta"
   - title: "Vocal あ (A)"
   - title: "Vocal い (I)"
   - title: "Vocal う (U)"
   - title: "Vocal え (E)"
   - title: "Vocal お (O)"
-  - title: "Práctica Guiada"
   - title: "Repaso Rápido"
   - title: "Examen"
 ---
@@ -37,393 +42,758 @@ import ModelResponseBuilder from '../../components/interactive/ModelResponseBuil
   <Page>
     <div class="mb-8 border-b border-zinc-100 dark:border-zinc-800 pb-4">
       <p class="text-[#F43F5E] font-bold mb-1 uppercase tracking-widest text-xs">Capítulo 1</p>
-      <h1 class="text-3xl font-bold !mt-0 !mb-2">Saludos y Frases Comunes: あいさつ/Aisatsu</h1>
+      <h1 class="text-3xl font-bold !mt-0 !mb-2">
+        <TermTooltip client:visible term="あいさつ" reading="Aisatsu" meaning="Saludos / Cortesía" /> y Escritura
+      </h1>
       <p class="text-zinc-500 dark:text-zinc-400 text-base leading-relaxed italic">
-        Tu primera mision en japones: entrar con seguridad, presentarte y cerrar una conversacion corta con naturalidad.
+        Tu primera misión: aprender a comunicarte y entender los trazos que dan vida al <TermTooltip client:visible term="日本語" reading="Nihongo" meaning="Idioma Japonés" />.
       </p>
     </div>
 
-    ## Vamos a conversar en japones
+    ## ¿Qué aprenderás hoy?
 
-    Esta leccion esta pensada como una escena real de clase: llegas, saludas, te presentas, agradeces, te disculpas y te despides.
+    Esta lección está diseñada para que puedas empezar a hablar desde el primer minuto. Primero aprenderemos los saludos y frases de cortesía, y al final descubriremos cómo funciona el sistema de escritura y tus primeras letras en <TermTooltip client:visible term="ひらがな" reading="Hiragana" meaning="Silabario nativo" />.
 
-    No necesitas memorizar todo hoy. Solo sigue el flujo y repite en voz alta: al final ya podras sostener un mini intercambio completo.
-
-    Hoy vas a practicar como **intercambiar saludos de manera sencilla** y sumaras una base de vocales Hiragana.
-
-    <InfoCallout title="Meta de comunicacion" icon="info">
-      Al terminar, podras iniciar y cerrar una conversacion corta con frases utiles.
+    <InfoCallout title="Ruta de hoy" icon="info">
+      1. Saludos esenciales y despedidas.
+      2. Cómo presentarte de forma sencilla.
+      3. La diferencia entre **Kanji**, **Hiragana** y **Katakana**.
+      4. Las 5 vocales base del **Hiragana**.
     </InfoCallout>
-
-    ### Ruta rapida
-
-    1. Saludos de entrada (mañana, mediodía, noche).
-    2. Saludos de despedida (informales y formales).
-    3. Agradecer y disculparse en contexto.
-    4. Vocales base del Hiragana.
   </Page>
 
   <Page>
     ## Saludos de entrada
 
-    Segun la hora, el saludo cambia. En esta tabla veras cuando usar cada forma segun el contexto.
+    En Japón, el tiempo marca el saludo. No es solo qué dices, sino cuándo lo dices.
 
     <ComparisonTable client:visible
-      caption="Saludos para iniciar el dia"
-      columns={["Hora / Contexto", "Japonés", "Lectura", "Significado"]}
+      caption="Horarios recomendados para saludar"
+      columns={["Hora (Aprox)", "Japonés", "Significado", "Matiz"]}
       highlightColumn={1}
       rows={[
-        ["7:00 am", "おはよう", "Ohayou", { type: "tooltip", term: "Informal", meaning: "Se usa con amigos o personas de confianza.", prefix: "Buenos dias (", suffix: ")" }],
-        ["7:00 am (formal)", "おはようございます", "Ohayou gozaimasu", { type: "tooltip", term: "Formal", meaning: "Version respetuosa para profesor, cliente o desconocido.", prefix: "Buenos dias (", suffix: ")" }],
-        ["12:00 pm", "こんにちは", "Konnichiwa", "Hola / Buenas tardes"],
-        ["Noche (encuentro)", "こんばんは", "Konbanwa", "Buenas noches"]
+        ["5:00 - 10:30", { type: "tooltip", term: "おはよう", reading: "Ohayou", meaning: "Buenos días" }, "Buenos días", "Si es formal, añade 'gozaimasu'"],
+        ["10:30 - 18:00", { type: "tooltip", term: "こんにちは", reading: "Konnichiwa", meaning: "Hola / Buenas tardes" }, "Hola", "El más usado durante el día"],
+        ["18:00 - Noche", { type: "tooltip", term: "こんばんは", reading: "Konbanwa", meaning: "Buenas noches" }, "Buenas noches", "Solo al encontrarse, no para dormir"]
       ]}
     />
 
-    <AudioPhraseCard
-      client:visible
-      prompt="Escucha y repite"
-      japanese="こんにちは"
-      reading="Konnichiwa"
-      audioSrc="/audio/konnichiwa.mp3"
-      audioLabel="Escuchar saludo"
-    />
+    <div class="mt-6 space-y-4">
+      <AudioPhraseCard
+        client:visible
+        prompt="Pronunciación neutral de 'Hola'"
+        japanese="こんにちは"
+        reading="Konnichiwa"
+        audioSrc="/audio/konnichiwa.mp3"
+        audioLabel="Escuchar Konnichiwa"
+      />
 
-    ### Ejemplo de conversacion
-
-    - A: <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Saludo respetuoso por la mañana." />.
-    - B: <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Respuesta comun en contexto formal." />.
-    - A: <TermTooltip client:visible term="Konnichiwa" reading="こんにちは" meaning="Hola / Buenas tardes." example="Saludo comun durante el dia." />.
-    - B: <TermTooltip client:visible term="Konnichiwa" reading="こんにちは" meaning="Hola / Buenas tardes." example="Respuesta natural al mismo saludo." />.
+      <InfoCallout title="¿Sabías que...?" variant="neutral" icon="info">
+        <TermTooltip client:visible term="こんにちは" reading="Konnichiwa" meaning="Hola" /> originalmente significaba "Hoy es..." (Kon-nichi wa...). La frase se cortó, pero se quedó la partícula <TermTooltip client:visible term="は" reading="wa" /> al final.
+      </InfoCallout>
+    </div>
   </Page>
 
   <Page>
     ## Saludos de despedida
 
-    Para cerrar una conversacion, puedes usar opciones casuales o formales.
+    Decir adiós en japonés tiene capas de significado. No todas las despedidas sirven para el mismo momento.
 
-    - **Casual entre amigos:** じゃあね (Ja ne) - "Nos vemos".
-    - **Mas formal:** さようなら (Sayounara) - "Adios".
-    - **Muy usado al terminar trabajo o estudio:** おつかれ (Otsukare) - "Buen trabajo".
+    <div class="space-y-4">
+      <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
+          <div class="text-3xl font-bold text-[#F43F5E]">
+            <TermTooltip client:visible term="じゃあね" reading="Ja ne" meaning="Nos vemos / Chao" />
+          </div>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500 w-fit">Informal / Casual</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          Es la forma más común entre amigos y familia. Es corta, cercana y transmite que volverás a ver a esa persona pronto.
+        </p>
+      </div>
 
-    <InfoCallout title="Consejo cultural" variant="neutral" icon="tip">
-      "Otsukare" se usa mucho entre companeros. No es una despedida literal, pero funciona muy bien al final del dia.
-    </InfoCallout>
+      <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
+          <div class="text-3xl font-bold text-[#F43F5E]">
+            <TermTooltip client:visible term="さようなら" reading="Sayounara" meaning="Adiós (formal)" />
+          </div>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500 w-fit">Formal / Distante</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          Tiene un peso de despedida larga o definitiva. Se usa con profesores o personas de mucho respeto, pero rara vez con amigos.
+        </p>
+      </div>
 
-    <div class="not-prose my-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
-      <span>Para cerrar esta parte, revisa estos tres terminos clave:</span>
-      <TermTooltip client:visible term="Ojigi" reading="おじぎ" meaning="Reverencia al saludar" example="Una pequena inclinacion al saludar." />
-      <span>,</span>
-      <TermTooltip client:visible term="Ja ne" reading="じゃあね" meaning="Despedida casual entre amigos." example="Con alguien de tu misma edad." />
-      <span>y</span>
-      <TermTooltip client:visible term="Sayounara" reading="さようなら" meaning="Adios mas formal o de separacion larga." example="Cuando no veras a alguien pronto." />
-      <span>.</span>
+      <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-2">
+          <div class="text-3xl font-bold text-[#F43F5E]">
+            <TermTooltip client:visible term="おつかれ" reading="Otsukare" meaning="Buen trabajo / Descansa" />
+          </div>
+          <span class="px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] font-bold uppercase tracking-wider text-zinc-500 w-fit">Laboral / Académico</span>
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          Se usa al terminar una jornada de estudio o trabajo. Reconoce el esfuerzo del otro y sirve como una despedida muy natural en esos entornos.
+        </p>
+      </div>
     </div>
 
-    ### Ejemplo de conversacion
-
-    - A: <TermTooltip client:visible term="Ja ne" reading="じゃあね" meaning="Nos vemos / Chao (casual)." example="Despedida entre amigos o compañeros de confianza." />.
-    - B: <TermTooltip client:visible term="Jaa, mata" reading="じゃあ、また" meaning="Nos vemos luego." example="Despedida casual muy comun." />.
-    - A: <TermTooltip client:visible term="Otsukare" reading="おつかれ" meaning="Buen trabajo." example="Se usa al cerrar una jornada o actividad." />.
+    <InfoCallout title="El error común" variant="neutral" icon="tip">
+      No uses <TermTooltip client:visible term="さようなら" reading="Sayounara" /> con tus amigos; pensarán que te vas para siempre. Mejor usa <TermTooltip client:visible term="またね" reading="Mata ne" meaning="Hasta luego" />.
+    </InfoCallout>
   </Page>
 
   <Page>
     ## Otros saludos: agradecer
 
-    Cuando alguien te ayuda, estas dos frases cubren casi todo.
-    Si dudas, usa
-    <TermTooltip client:visible term="Arigatou gozaimasu" reading="ありがとうございます" meaning="Forma mas educada para dar las gracias." example="Con un profesor o en una tienda." />.
+    La gratitud es el motor de la armonía social en Japón. Hay diferentes niveles según la persona a la que te dirijas.
 
-    <div class="my-4 space-y-3 max-w-xl mx-auto w-full">
-      <div class="p-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-center">
-        <p class="text-3xl font-bold mb-1">ありがとう</p>
-        <p class="text-zinc-500 dark:text-zinc-400 mb-0">Arigatou - Gracias (informal)</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+      <div class="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm text-center">
+        <p class="text-xs text-zinc-400 font-bold uppercase mb-2">Forma Simple</p>
+        <p class="text-4xl font-bold mb-2">
+          <TermTooltip client:visible term="ありがとう" reading="Arigatou" meaning="Gracias" />
+        </p>
+        <p class="text-sm text-zinc-500">Úsalo en situaciones cotidianas donde hay confianza (amigos, familia).</p>
       </div>
-      <div class="p-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-center">
-        <p class="text-3xl font-bold mb-1">ありがとうございます</p>
-        <p class="text-zinc-500 dark:text-zinc-400 mb-0">Arigatou gozaimasu - Gracias (formal)</p>
+      <div class="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-[#F43F5E]/5 dark:bg-[#F43F5E]/10 shadow-sm text-center">
+        <p class="text-xs text-[#F43F5E] font-bold uppercase mb-2">Forma Educada</p>
+        <p class="text-3xl font-bold mb-2">
+          <TermTooltip client:visible term="ありがとうございます" reading="Arigatou gozaimasu" meaning="Muchas gracias" />
+        </p>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 font-medium">Ante la duda con desconocidos o mayores, usa siempre esta versión.</p>
       </div>
     </div>
 
-    <InfoCallout title="Variante regional importante" variant="neutral" icon="info">
-      <p class="m-0">
-        Tambien existe <TermTooltip client:visible term="Ookini" reading="おおきに" meaning="Gracias (variante regional, muy asociada a Osaka/Kansai)." example="Se escucha en comercios y conversaciones cotidianas de la region." />.
-        El japones estandar de los libros te ayudara mucho, pero no siempre se habla igual en todo Japon. Por eso es util conocer estas variantes desde el inicio.
-      </p>
+    ### Matices rápidos de agradecimiento:
+    
+    <ul class="space-y-4 my-6 list-none pl-0">
+      <li class="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700 flex flex-col md:flex-row gap-4 items-start md:items-center">
+        <div class="flex-shrink-0 w-32 font-bold text-xl text-zinc-800 dark:text-zinc-200"><TermTooltip client:visible term="どうも" reading="Doumo" meaning="Gracias (casual) / En gran medida" /></div>
+        <div class="text-sm text-zinc-600 dark:text-zinc-400"><strong>Súper versátil:</strong> Sirve como un "gracias" rápido (al que te abre la puerta), o puedes añadirlo al principio para enfatizar: <TermTooltip client:visible term="どうもありがとう" reading="Doumo arigatou" meaning="Muchísimas gracias" />.</div>
+      </li>
+      <li class="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700 flex flex-col md:flex-row gap-4 items-start md:items-center">
+        <div class="flex-shrink-0 w-32 font-bold text-xl text-zinc-800 dark:text-zinc-200"><TermTooltip client:visible term="サンキュー" reading="Sankyuu" meaning="Thanks" /></div>
+        <div class="text-sm text-zinc-600 dark:text-zinc-400"><strong>Préstamo del inglés ("Thank you"):</strong> Muy casual. Lo escucharás entre los jóvenes o amigos cercanos. Se escribe en <TermTooltip client:visible term="カタカナ" reading="Katakana" meaning="Silabario extranjero" />.</div>
+      </li>
+      <li class="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700 flex flex-col md:flex-row gap-4 items-start md:items-center">
+        <div class="flex-shrink-0 w-32 font-bold text-xl text-zinc-800 dark:text-zinc-200"><TermTooltip client:visible term="おおきに" reading="Ookini" meaning="Gracias (Kansai)" /></div>
+        <div class="text-sm text-zinc-600 dark:text-zinc-400"><strong>Sabor regional:</strong> Es el equivalente a "gracias" en el dialecto de la región de Kansai (Osaka, Kioto). Muy apreciado por los locales y lleno de carisma y calidez.</div>
+      </li>
+      <li class="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700 flex flex-col md:flex-row gap-4 items-start md:items-center">
+        <div class="flex-shrink-0 w-32 font-bold text-lg text-zinc-800 dark:text-zinc-200"><TermTooltip client:visible term="ありがとうございました" reading="Arigatou gozaimashita" meaning="Gracias por lo que hiciste" /></div>
+        <div class="text-sm text-zinc-600 dark:text-zinc-400"><strong>En tiempo pasado:</strong> Se usa cuando la acción por la que agradeces ya concluyó (ej. al salir de una tienda, o agradecer algo que pasó ayer).</div>
+      </li>
+    </ul>
+
+    <InfoCallout title="Una acción vale más que mil palabras" variant="neutral" icon="info">
+      Mientras más formal sea el "gracias", más profunda debe ser tu reverencia (<TermTooltip client:visible term="おじぎ" reading="Ojigi" meaning="Reverencia" />). Un rápido 'Doumo' requiere solo inclinar levemente la cabeza, pero un 'Arigatou gozaimasu' a tu jefe merece una inclinación de 30 o 45 grados.
     </InfoCallout>
-
-    ### Ejemplo de conversacion
-
-    - A: <TermTooltip client:visible term="Kore, douzo" reading="これ、どうぞ" meaning="Toma esto / Aqui tienes." example="Se usa al ofrecer algo." />.
-    - B: <TermTooltip client:visible term="Arigatou gozaimasu" reading="ありがとうございます" meaning="Muchas gracias (formal)." example="Agradecimiento recomendado en contexto educado." />.
   </Page>
 
   <Page>
     ## Otros saludos: disculparse
 
-    Tambien hay dos expresiones muy usadas para disculpas. Esta pista ayuda:
-    <TermTooltip client:visible term="Sumimasen" reading="すみません" meaning="Disculpa respetuosa o para llamar la atencion." example="Sumimasen, sensei." />
+    En japonés, pedir perdón es también una forma de mostrar empatía y respeto por el espacio o tiempo del otro. No existe una sola palabra; el contexto lo es todo.
 
-    <ComparisonTable client:visible
-      caption="Disculpas rapidas en japones"
-      columns={["Japonés", "Lectura", "Uso"]}
-      highlightColumn={0}
-      rows={[
-        ["ごめん", "Gomen", "Perdon casual con confianza"],
-        ["すみません", "Sumimasen", "Disculpa mas respetuosa o para llamar la atencion"]
-      ]}
-    />
+    <div class="bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="md:col-span-1">
+          <div class="inline-flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Versátil / Comodín</span>
+          </div>
+          <h3 class="!mt-0 font-bold text-xl"><TermTooltip client:visible term="すみません" reading="Sumimasen" meaning="Disculpe / Perdón" /></h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">La navaja suiza de la cortesía. Úsala para:</p>
+          <ul class="text-sm list-disc pl-5 mt-2 space-y-1">
+            <li><strong>Llamar la atención:</strong> Al camarero en el restaurante.</li>
+            <li><strong>Permiso:</strong> Para pasar por un pasillo estrecho.</li>
+            <li><strong>Disculpa ligera:</strong> Si rozas a alguien.</li>
+            <li><strong>Gratitud humilde:</strong> Por las molestias que alguien se tomó (ej. te recogen algo que se te cayó).</li>
+          </ul>
+        </div>
 
-    En contextos nuevos o formales, empieza con **Sumimasen**.
-    <TermTooltip client:visible term="Gomen" reading="ごめん" meaning="Perdon casual; suena cercano." example="Gomen, me atrase." />
+        <div class="md:col-span-1 border-t md:border-t-0 md:border-l border-zinc-200 dark:border-zinc-800 pt-6 md:pt-0 md:pl-6">
+          <div class="inline-flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-[#F43F5E]"></span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Perdón Genuino</span>
+          </div>
+          <h3 class="!mt-0 font-bold text-xl"><TermTooltip client:visible term="ごめんなさい" reading="Gomen nasai" meaning="Lo siento mucho" /></h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">Es una disculpa directa al corazón. Úsala cuando realmente admites la culpa por algo y pides perdón.</p>
+          <p class="text-sm mt-3 italic text-zinc-500">Ej: Rompiste un vaso, llegaste muy tarde a una cita, o heriste los sentimientos de alguien.</p>
+        </div>
 
-    ### Ejemplo de conversacion
-
-    - A: <TermTooltip client:visible term="Sumimasen" reading="すみません" meaning="Disculpe / Perdón." example="Sirve para disculparte o llamar la atención con respeto." />.
-    - B: <TermTooltip client:visible term="Hai, daijoubu desu" reading="はい、だいじょうぶです" meaning="Si, esta bien / No pasa nada." example="Respuesta amable a una disculpa." />.
-  </Page>
-
-  <Page>
-    ## Presentarte
-
-    Aqui conectamos saludos con una presentacion corta para conversar desde el primer dia.
-
-    <ComparisonTable client:visible
-      caption="Frases clave para presentarte"
-      columns={["Japonés", "Lectura", "Uso"]}
-      highlightColumn={0}
-      rows={[
-        ["はじめまして", "Hajimemashite", "Mucho gusto / Encantado de conocerte"],
-        ["わたしは ___ です", "Watashi wa ___ desu", "Presentacion base, segura y educada"],
-        ["___ と もうします", "___ to moushimasu", "Forma mas formal para presentarte"],
-        ["どうぞよろしく", "Douzo yoroshiku", "Cierre amable de presentacion"]
-      ]}
-    />
-
-    <InfoCallout title="Atajo recomendado" variant="neutral" icon="tip">
-      Si no sabes que version usar, elige la forma simple: "Watashi wa ___ desu."
-    </InfoCallout>
-
-    <div class="not-prose my-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
-      <span>Terminos clave para presentarte:</span>
-      <TermTooltip client:visible term="Hajimemashite" reading="はじめまして" meaning="Mucho gusto / Encantado de conocerte." example="Se usa al conocer a alguien por primera vez." />
-      <span>,</span>
-      <TermTooltip client:visible term="Watashi wa ___ desu" reading="わたしは ___ です" meaning="Me llamo / Soy ___." example="Forma base, segura y educada para presentarte." />
-      <span>y</span>
-      <TermTooltip client:visible term="Douzo yoroshiku" reading="どうぞよろしく" meaning="Mucho gusto / Quedo a tu cuidado." example="Cierre amable despues de presentarte." />
-      <span>.</span>
+        <div class="md:col-span-1 border-t md:border-t-0 md:border-l border-zinc-200 dark:border-zinc-800 pt-6 md:pt-0 md:pl-6">
+          <div class="inline-flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-zinc-400"></span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Súper Casual</span>
+          </div>
+          <h3 class="!mt-0 font-bold text-xl"><TermTooltip client:visible term="ごめん" reading="Gomen" meaning="Perdón" /></h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400">La versión recortada de Gomen nasai. <strong>Exclusiva para amigos, pareja o familia.</strong></p>
+          <p class="text-sm mt-3 italic text-zinc-500">Ejemplo: <TermTooltip client:visible term="ごめん、おそくなった" reading="Gomen, osoku natta" meaning="Perdón, me retrasé" />.</p>
+        </div>
+      </div>
     </div>
 
-    ### Ejemplo de conversacion
-
-    - A: <TermTooltip client:visible term="Hajimemashite" reading="はじめまして" meaning="Mucho gusto / Encantado de conocerte." example="Se usa al iniciar una presentacion." />.
-    - A: <TermTooltip client:visible term="Watashi wa Ana desu" reading="わたしは Ana です" meaning="Me llamo Ana." example="Forma simple recomendada para presentarte." />.
-    - A: <TermTooltip client:visible term="Douzo yoroshiku" reading="どうぞよろしく" meaning="Mucho gusto / Quedo a tu cuidado." example="Cierre cordial despues de decir tu nombre." />.
+    <InfoCallout class="mt-6" title="¡Puntualidad Nivel Ninja!" variant="neutral" icon="tip">
+      <p class="m-0">
+        En Japón, **si llegas a la hora exacta, ¡ya vas tarde!** La regla de oro es llegar 5 minutos antes. Es tan estricto que una vez una compañía de trenes pidió perdón nacional mediante un comunicado oficial porque un tren salió **20 segundos antes** de tiempo y algunas personas lo perdieron. ¡Así de sagrado es el reloj y el espacio del otro! 🚅💨
+      </p>
+    </InfoCallout>
   </Page>
 
   <Page>
-    ## Preguntas basicas en conversacion
+    ## Presentarte: <TermTooltip client:visible term="自己紹介" reading="Jikoshoukai" meaning="Presentación personal" />
 
-    Estas dos preguntas aparecen mucho en una primera conversacion.
+    Esta es la página más importante. Aquí es donde dejas de ser un extraño. La estructura de presentación japonesa es un ritual de tres partes:
 
-    <ComparisonTable client:visible
-      caption="Preguntas frecuentes para iniciar charla"
-      columns={["Japonés", "Lectura", "Significado"]}
-      highlightColumn={0}
-      rows={[
-        ["お名前は？", "Onamae wa?", "Como te llamas?"],
-        ["お国は？", "Okuni wa?", "De que pais eres?"]
-      ]}
-    />
+    ### 1. El Saludo Inicial
+    <p class="text-2xl font-bold text-[#F43F5E]">
+      <TermTooltip client:visible term="はじめまして" reading="Hajimemashite" meaning="Mucho gusto (primera vez)" />
+    </p>
+    <p class="text-sm text-zinc-500 italic">Literalmente: "Es la primera vez (que nos vemos)". Viene del verbo **hajimeru** (comenzar).</p>
+
+    ### 2. Tu Identidad
+
+    A diferencia del español ("Yo soy Ana"), en japonés el verbo **siempre va al final**. Así se construye la frase:
+
+    <div class="flex flex-wrap gap-4 items-end justify-center my-8 p-6 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm">
+      <div class="text-center">
+        <div class="text-2xl font-bold text-zinc-800 dark:text-zinc-100 mb-1">
+          <TermTooltip client:visible term="わたしは" reading="Watashi wa" meaning="Yo (marcado como tema de la frase)" example="Literalmente: 'En cuanto a mí...'" />
+        </div>
+        <div class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest border-t border-zinc-200 dark:border-zinc-700 pt-1">Yo (Sujeto/Tema)</div>
+      </div>
+      
+      <div class="text-2xl font-bold text-zinc-300 dark:text-zinc-700 mb-6 self-center">+</div>
+
+      <div class="text-center">
+        <div class="text-2xl font-bold text-[#F43F5E] mb-1">[Nombre]</div>
+        <div class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest border-t border-zinc-200 dark:border-zinc-700 pt-1">Tu Identidad</div>
+      </div>
+
+      <div class="text-2xl font-bold text-zinc-300 dark:text-zinc-700 mb-6 self-center">+</div>
+
+      <div class="text-center">
+        <div class="text-2xl font-bold text-zinc-800 dark:text-zinc-100 mb-1">
+          <TermTooltip client:visible term="です" reading="desu" meaning="Soy / Es" example="Verbo copulativo que cierra la frase." />
+        </div>
+        <div class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest border-t border-zinc-200 dark:border-zinc-700 pt-1">Verbo "Ser"</div>
+      </div>
+    </div>
+
+    <p class="text-sm text-zinc-500 italic text-center">Ejemplo: わたしは **Ana** です (Watashi wa Ana desu)</p>
+
+    <div class="mt-4 space-y-2">
+      <h3 class="!mt-0 !mb-0 font-bold text-lg">3. El Cierre de Cortesía</h3>
+      <p class="text-2xl font-bold text-zinc-800 dark:text-zinc-100 !mt-0 !mb-0">
+        <TermTooltip client:visible term="どうぞよろしく" reading="Douzo yoroshiku" meaning="Mucho gusto / Quedo a tu cuidado" example="Es el 'sello' que cierra tu presentación." />
+      </p>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed !mt-0 !mb-0">
+        Esta es la frase más difícil de traducir. Transmite la **intención de iniciar una buena relación**. Podrías entenderla como un: *"Por favor, trátame bien"* o *"Cuento contigo"*.
+      </p>
+    </div>
+
+    <InfoCallout class="mt-4" title="El gesto es la palabra" variant="neutral" icon="tip">
+      <p class="m-0 text-sm">
+        En Japón, las palabras no van solas. Al decir <TermTooltip client:visible term="よろしく" reading="Yoroshiku" meaning="Mucho gusto / Cuento contigo" />, es **obligatorio** hacer una pequeña **reverencia** (<TermTooltip client:visible term="おじぎ" reading="Ojigi" meaning="Reverencia" example="Gesto de respeto al saludar." />). Ese movimiento físico es el que realmente dice: *"Soy una persona educada y respeto este nuevo vínculo"*.
+      </p>
+    </InfoCallout>
+  </Page>
+
+  <Page>
+    ## Preguntas básicas
+
+    Si quieres conocer a alguien, estas son las preguntas iniciales más comunes. Nota cómo todas terminan con la partícula <TermTooltip client:visible term="か" reading="ka" meaning="Partícula de pregunta (?)" />, que equivale a nuestro signo de interrogación final.
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+      <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600"></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Identidad</span>
+        </div>
+        <p class="text-xl font-bold mb-2"><TermTooltip client:visible term="お名前は？" reading="O-namae wa?" meaning="¿Cuál es tu nombre?" /></p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">Se omite el verbo para ser más natural. La <TermTooltip client:visible term="お" reading="o" /> inicial es un prefijo de respeto (honorífico) para la palabra nombre (namae).</p>
+      </div>
+
+      <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600"></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Origen</span>
+        </div>
+        <p class="text-xl font-bold mb-2"><TermTooltip client:visible term="お国は？" reading="O-kuni wa?" meaning="¿De qué país eres?" /></p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">Como Japón es una isla, "kuni" (país) se usa casi exclusivamente para preguntar la nacionalidad de extranjeros.</p>
+      </div>
+
+      <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600"></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Ocupación</span>
+        </div>
+        <p class="text-xl font-bold mb-2"><TermTooltip client:visible term="お仕事は？" reading="O-shigoto wa?" meaning="¿En qué trabajas?" /></p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">Muy común entre adultos para establecer la relación social y el nivel de formalidad necesario.</p>
+      </div>
+
+      <div class="p-5 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:border-[#F43F5E]/30">
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600"></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Edad (Con precaución)</span>
+        </div>
+        <p class="text-xl font-bold mb-2"><TermTooltip client:visible term="おいくつですか？" reading="O-ikutsu desu ka?" meaning="¿Cuántos años tienes?" /></p>
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">La edad define la jerarquía en Japón (Senpai/Kouhai). Pero pregúntalo solo si es necesario y relevante.</p>
+      </div>
+    </div>
 
     <ModelResponseBuilder client:visible />
-
-    ### Ejemplo de conversacion
-
-    - A: <TermTooltip client:visible term="Onamae wa?" reading="お名前は？" meaning="¿Cómo te llamas?" example="Pregunta básica en una primera presentación." />.
-    - B: <TermTooltip client:visible term="Watashi wa Luis desu" reading="わたしは Luis です" meaning="Me llamo Luis." example="Respuesta simple y recomendada." />.
-    - A: <TermTooltip client:visible term="Okuni wa?" reading="お国は？" meaning="¿De qué país eres?" example="Pregunta común para continuar la conversación." />.
-    - B: <TermTooltip client:visible term="Nikaragua-jin desu" reading="ニカラグア人です" meaning="Soy nicaraguense." example="Respuesta corta de nacionalidad." />.
   </Page>
 
   <Page>
-    ## Registro: casual y formal
+    ## Registro: casual vs. formal
 
-    Usa registro formal en clase, con personas nuevas o en contexto profesional.
+    La elección de tus pronombres y terminaciones depende de una sola brújula social: **¿Estás dentro o fuera del círculo de confianza?** (El principio de Uchi-Soto).
+
+    <div class="flex flex-col md:flex-row gap-6 mb-8 mt-4">
+      <div class="flex-1 bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 p-5 rounded-2xl">
+        <div class="text-lg font-bold text-blue-600 dark:text-blue-400 mb-2">内 (Uchi) - "Dentro"</div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">Tu familia, amigos cercanos, o compañeros directos de tu mismo equipo. Si te equivocas aquí, usar demasiado formalismo sonará <strong>frío y distante</strong>.</p>
+      </div>
+      <div class="flex-1 bg-rose-50 dark:bg-rose-900/10 border border-rose-100 dark:border-rose-900/30 p-5 rounded-2xl">
+        <div class="text-lg font-bold text-rose-600 dark:text-rose-400 mb-2">外 (Soto) - "Fuera"</div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">Desconocidos, clientes, profesores o la sociedad en general. Debes ser formal para mostrar que <strong>perteneces a una buena educación</strong> y respetas los límites.</p>
+      </div>
+    </div>
+
+    El nivel de respeto cambia radicalmente la forma de decir la palabra más básica, "Yo". Pasa el cursor para ver la diferencia:
 
     <ComparisonTable client:visible
-      caption="Misma idea, distinto nivel de formalidad"
-      columns={["Nivel", "Ejemplo", "Nota"]}
+      caption="Niveles de formalidad para el pronombre 'YO'"
+      columns={["Nivel", "Escritura", "Uso principal", "Nota"]}
       highlightColumn={1}
       rows={[
-        [
-          "Casual",
-          { type: "tooltip", term: "Boku wa ___", reading: "ぼくは ___", meaning: "Yo soy / Me llamo ___ (casual).", example: "Lo usan bastante niños y chicos; suena suave y cercano." },
-          "Casual y cercano; frecuente en niños y chicos"
-        ],
-        [
-          "Casual",
-          { type: "tooltip", term: "Ore wa ___", reading: "おれは ___", meaning: "Yo soy / Me llamo ___ (muy informal y fuerte).", example: "Puede sonar rudo o de superioridad si no hay confianza; evita usarlo al empezar." },
-          "Muy informal y fuerte; puede sonar dominante sin confianza"
-        ],
-        [
-          "Neutral/seguro",
-          { type: "tooltip", term: "Watashi wa ___ desu", reading: "わたしは ___ です", meaning: "Me llamo / Soy ___.", example: "Forma base recomendada para clase y contextos nuevos." },
-          "Version recomendada para empezar"
-        ],
-        [
-          "Formal",
-          { type: "tooltip", term: "Watakushi wa ___ to moushimasu", reading: "わたくしは ___ と もうします", meaning: "Permítame presentarme: soy/me llamo ___.", example: "Forma formal para presentaciones y contexto profesional." },
-          "Uso formal en presentaciones"
-        ]
+        ["Casual Niño/Joven", { type: "tooltip", term: "ぼく", reading: "Boku", meaning: "Yo (masculino suave)" }, "Entre amigos, familia", "Da una imagen inofensiva o juvenil"],
+        ["Informal Hombre", { type: "tooltip", term: "おれ", reading: "Ore", meaning: "Yo (masculino fuerte)" }, "Circulo íntimo masculino", "Muy rudo. NUNCA en el trabajo"],
+        ["Neutral", { type: "tooltip", term: "わたし", reading: "Watashi", meaning: "Yo (neutral/educado)" }, "Cualquier situación pública", "La opción 100% segura para ambos géneros"],
+        ["Muy Formal", { type: "tooltip", term: "わたくし", reading: "Watakushi", meaning: "Yo (formal de negocios)" }, "Servicio al cliente o entrevistas", "Proyecta profesionalismo absoluto"]
+      ]}
+    />
+    
+    <InfoCallout title="El tabú de 'Tú'" variant="neutral" icon="warning">
+      Evita decir <strong>'Anata'</strong> (Tú) con japoneses reales. Aunque lo enseñen los libros, suena condescendiente, como hablarle a un niño ("Usted"). Lo correcto en Japón es **llamar a la persona por su apellido + San** (Ej. Tanaka-san, ¿de dónde es?) o simplemente omitir el sujeto si por contexto es obvio.
+    </InfoCallout>
+  </Page>
+
+  <Page>
+    ## Práctica de Diálogo
+
+    Vamos a simular un encuentro real paso a paso. Imagina la escena: es el primer día de clases o el primer encuentro con un compañero de intercambio. 
+    
+    Intenta leer estas frases en voz alta (pasa el cursor si lo necesitas para ver la pronunciación):
+
+    <div class="mt-8 w-full">
+
+      {/* Section marker */}
+      <div class="flex items-center gap-3 mb-8">
+        <div class="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-xs font-black uppercase tracking-widest text-[#F43F5E] bg-[#F43F5E]/10 px-3 py-1 rounded-full">
+            <TermTooltip client:visible term="会話" reading="Kaiwa" meaning="Conversación" />
+          </span>
+          <span class="text-sm text-zinc-400">Escena: Dos estudiantes se conocen</span>
+        </div>
+        <div class="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
+      </div>
+
+      <div class="space-y-6">
+
+        {/* Línea 1 — Tanaka */}
+        <div class="flex gap-4">
+          <div class="w-0.5 rounded-full bg-blue-300 dark:bg-blue-700 shrink-0" />
+          <div>
+            <p class="text-[10px] uppercase font-black tracking-widest text-blue-500 mb-1.5 m-0">Tanaka</p>
+            <p class="text-xl m-0 font-medium leading-relaxed">
+              <TermTooltip client:visible term="こんにちは！" reading="Konnichiwa!" meaning="¡Hola!" />
+              <TermTooltip client:visible term="はじめまして。" reading="Hajimemashite." meaning="Mucho gusto." />
+            </p>
+            <p class="text-sm text-zinc-400 italic mt-1.5 m-0">¡Hola! Es un gusto.</p>
+          </div>
+        </div>
+
+        {/* Línea 2 — Tú */}
+        <div class="flex gap-4">
+          <div class="w-0.5 rounded-full bg-rose-300 dark:bg-rose-700 shrink-0" />
+          <div>
+            <p class="text-[10px] uppercase font-black tracking-widest text-rose-500 mb-1.5 m-0">Tú (Ana)</p>
+            <p class="text-xl m-0 font-medium leading-relaxed">
+              <TermTooltip client:visible term="はじめまして。" reading="Hajimemashite." meaning="Mucho gusto." />
+              <TermTooltip client:visible term="わたしは" reading="Watashi wa" meaning="Yo soy..." />
+              <span class="font-bold border-b-2 border-zinc-300 dark:border-zinc-700 mx-1">Ana</span>
+              <TermTooltip client:visible term="です。" reading="desu." meaning="(verbo ser)" />
+            </p>
+            <p class="text-sm text-zinc-400 italic mt-1.5 m-0">Mucho gusto. Yo soy Ana.</p>
+          </div>
+        </div>
+
+        {/* Línea 3 — Tanaka */}
+        <div class="flex gap-4">
+          <div class="w-0.5 rounded-full bg-blue-300 dark:bg-blue-700 shrink-0" />
+          <div>
+            <p class="text-[10px] uppercase font-black tracking-widest text-blue-500 mb-1.5 m-0">Tanaka</p>
+            <p class="text-xl m-0 font-medium leading-relaxed">
+              <span class="font-bold border-b-2 border-zinc-300 dark:border-zinc-700 mr-1">Ana-san</span>、<TermTooltip client:visible term="お国は？" reading="Okuni wa?" meaning="¿De qué país eres?" />
+            </p>
+            <p class="text-sm text-zinc-400 italic mt-1.5 m-0">Ana, ¿de qué país eres?</p>
+          </div>
+        </div>
+
+        {/* Línea 4 — Tú */}
+        <div class="flex gap-4">
+          <div class="w-0.5 rounded-full bg-rose-300 dark:bg-rose-700 shrink-0" />
+          <div>
+            <p class="text-[10px] uppercase font-black tracking-widest text-rose-500 mb-1.5 m-0">Tú (Ana)</p>
+            <p class="text-xl m-0 font-medium leading-relaxed">
+              <TermTooltip client:visible term="ニカラグアです。" reading="Nikaragua desu." meaning="Soy de Nicaragua." />
+              <TermTooltip client:visible term="どうぞよろしく！" reading="Douzo yoroshiku!" meaning="¡Encantada de conocerte!" />
+            </p>
+            <p class="text-sm text-zinc-400 italic mt-1.5 m-0">De Nicaragua. ¡Espero que nos llevemos bien!</p>
+          </div>
+        </div>
+
+        {/* Línea 5 — Tanaka */}
+        <div class="flex gap-4">
+          <div class="w-0.5 rounded-full bg-blue-300 dark:bg-blue-700 shrink-0" />
+          <div>
+            <p class="text-[10px] uppercase font-black tracking-widest text-blue-500 mb-1.5 m-0">Tanaka</p>
+            <p class="text-xl m-0 font-medium leading-relaxed">
+              <TermTooltip client:visible term="よろしく！" reading="Yoroshiku!" meaning="¡Igualmente!" />
+            </p>
+            <p class="text-sm text-zinc-400 italic mt-1.5 m-0">¡Igualmente!</p>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Closing rule */}
+      <div class="mt-8 h-px bg-zinc-100 dark:bg-zinc-800" />
+
+    </div>
+  </Page>
+
+  <Page>
+    ## El Rompecabezas Japonés
+
+    Ahora que ya sabes qué decir, vamos a entender cómo se escribe. Entrar al japonés escrito es dejar de pensar en "un alfabeto" y entrar en la "escritura mixta".
+    
+    El japonés moderno utiliza **tres sistemas diferentes simultáneamente** en la misma frase. Puede sonar aterrador, pero tienen funciones muy específicas, que hacen del japonés uno de los idiomas más ricos visualmente del mundo.
+
+    <div class="my-6 grid grid-cols-1 md:grid-cols-3 md:gap-px bg-zinc-200 dark:bg-zinc-800 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
+      
+      <div class="bg-white dark:bg-zinc-900 p-6 flex flex-col items-center text-center">
+        <div class="w-16 h-16 rounded-2xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center shadow-inner mb-4">
+          <span class="text-4xl font-bold text-zinc-700 dark:text-zinc-300">漢</span>
+        </div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-1">El Corazón · 漢字</p>
+        <p class="text-xl font-bold mb-2">Ideogramas</p>
+        <p class="text-sm text-zinc-500 mt-auto">Aportan el **significado**. Raíces de verbos y palabras fuertes.</p>
+      </div>
+
+      <div class="bg-white dark:bg-zinc-900 p-6 flex flex-col items-center text-center">
+        <div class="w-16 h-16 rounded-2xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center shadow-inner mb-4">
+          <span class="text-4xl font-bold text-blue-500">ア</span>
+        </div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-blue-400/80 mb-1">El Puente · カタカナ</p>
+        <p class="text-xl font-bold mb-2">Silabario Extranjero</p>
+        <p class="text-sm text-zinc-500 mt-auto">Aportan el **foco**. Préstamos extranjeros y onomatopeyas.</p>
+      </div>
+
+      <div class="bg-white dark:bg-zinc-900 p-6 flex flex-col items-center text-center">
+        <div class="w-16 h-16 rounded-2xl bg-[#F43F5E]/10 flex items-center justify-center shadow-inner mb-4">
+          <span class="text-4xl font-bold text-[#F43F5E]">あ</span>
+        </div>
+        <p class="text-[10px] font-bold uppercase tracking-widest text-[#F43F5E]/80 mb-1">El Alma · ひらがな</p>
+        <p class="text-xl font-bold mb-2">Silabario Nativo</p>
+        <p class="text-sm text-zinc-500 mt-auto">Aportan la **gramática**. Partículas, inflexiones y terminaciones.</p>
+      </div>
+
+    </div>
+  </Page>
+
+  <Page>
+    ## <TermTooltip client:visible term="漢字" reading="Kanji" meaning="Ideogramas" />: El corazón
+
+    Cada carácter representa un concepto o una idea en sí mismo. Provienen de China y son el pilar del vocabulario. En un texto japonés, los kanjis son como las "raíces" de los árboles.
+
+    - **Aspecto:** Complejos, llenos de trazos y muy visuales. Muchos se originaron como dibujos literales de la naturaleza.
+    - **Uso:** Sustantivos, la raíz principal de los verbos y adjetivos, y nombres propios japoneses.
+
+    <ComparisonTable client:visible
+      caption="Ejemplos visuales de Kanji"
+      columns={["Kanji", "Lectura", "Significado", "Curiosidad"]}
+      highlightColumn={0}
+      rows={[
+        [{ type: "tooltip", term: "水", reading: "Mizu", meaning: "Agua" }, "Mizu", "Agua", "Parece el flujo de un río cayendo."],
+        [{ type: "tooltip", term: "火", reading: "Hi", meaning: "Fuego" }, "Hi", "Fuego", "Como llamas elevándose."],
+        [{ type: "tooltip", term: "人", reading: "Hito", meaning: "Persona" }, "Hito", "Persona", "Dos piernas paradas firmemente."]
       ]}
     />
 
-    <InfoCallout title="Regla practica" icon="info">
-      En esta leccion, prioriza "watashi + desu" como base. Las otras formas son referencia de contexto.
+    <InfoCallout title="¿Por qué tantos kanjis?" variant="neutral" icon="tip">
+      Se estima que hay decenas de miles, pero solo necesitas unos **2,136 kanjis** (llamados Jōyō Kanji) para leer el periódico y entender el 99% del japonés cotidiano de forma fluida.
     </InfoCallout>
   </Page>
 
   <Page>
-    ## Vocal あ (A)
+    ## <TermTooltip client:visible term="カタカナ" reading="Katakana" meaning="Silabario extranjero" />: El puente
 
-    Empezamos con la primera vocal del Hiragana.
+    Herramienta para lo que viene de fuera. Es el sistema más **geométrico y anguloso**, como si estuviera escrito con una katana.
 
-    <AudioPhraseCard
-      client:visible
-      prompt="Pronunciacion de la vocal"
-      japanese="あ"
-      reading="A"
-      audioSrc="/audio/a.mp3"
-      audioLabel="Escuchar A"
-    />
+    Sus funciones principales en el japonés moderno son:
+    - **Extranjerismos:** Empezarás leyendo palabras que ya conoces prestadas del inglés, portugués o español.
+    - **Nombres y países no orientales:** Tu propio nombre se escribirá en Katakana.
+    - **Onomatopeyas:** Sonidos de la naturaleza o de acciones (como "¡Pum!", "¡Zas!").
+    - **Énfasis:** Funciona como las *cursivas* o **negritas** en español para resaltar algo.
 
-    <KanaKanjiDrawingPad client:visible size="wide" character="あ" reading="a" strokes={3} />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div class="p-4 bg-zinc-50 dark:bg-zinc-900/50 rounded-xl border border-zinc-100 dark:border-zinc-800 flex flex-col items-center justify-center text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/5 to-transparent" />
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <div class="text-xs uppercase tracking-tighter font-bold text-zinc-400 mb-2">Una letra angular</div>
+          <div class="text-5xl mb-2 text-blue-500">ア</div>
+          <p class="text-xs font-bold italic">La vocal 'A' en Katakana</p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col justify-center">
+        <p class="text-sm font-bold text-zinc-500 mb-2 uppercase tracking-wide">Ejemplos comunes</p>
+        <ul class="space-y-3">
+          <li class="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-800 pb-2">
+            <span class="font-bold text-lg"><TermTooltip client:visible term="テレビ" reading="Terebi" meaning="Televisión" /></span>
+            <span class="text-xs text-zinc-400">Del inglés: TV</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-800 pb-2">
+            <span class="font-bold text-lg"><TermTooltip client:visible term="パン" reading="Pan" meaning="Pan" /></span>
+            <span class="text-xs text-zinc-400">Del portugués: Pão</span>
+          </li>
+          <li class="flex justify-between items-center">
+            <span class="font-bold text-lg"><TermTooltip client:visible term="メキシコ" reading="Mekishiko" meaning="México" /></span>
+            <span class="text-xs text-zinc-400">País extranjero</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </Page>
 
   <Page>
-    ## Vocal い (I)
+    ## <TermTooltip client:visible term="ひらがな" reading="Hiragana" meaning="Silabario nativo" />: El alma
 
-    Segunda vocal: corta y facil de reconocer.
+    Es el sistema más esencial y el que aprenderemos a detalle. Sus trazos son **curvos, redondeados y fluidos**. Históricamente se escribía de corrido como el cursivo.
 
-    <AudioPhraseCard
-      client:visible
-      prompt="Pronunciacion de la vocal"
-      japanese="い"
-      reading="I"
-      audioSrc="/audio/i.mp3"
-      audioLabel="Escuchar I"
-    />
+    - **Uso Estructural:** Sirve para las "partículas" (gramática que une oraciones), terminaciones de los verbos y palabras estrictamente nativas niponas que no usan kanji.
+    - **Como ayuda (Furigana):** A menudo verás hiragana pequeñito encima de los kanjis difíciles para indicar cómo se leen.
 
-    <KanaKanjiDrawingPad client:visible size="wide" character="い" reading="i" strokes={2} />
-  </Page>
-
-  <Page>
-    ## Vocal う (U)
-
-    Tercera vocal del bloque basico.
-
-    <AudioPhraseCard
-      client:visible
-      prompt="Pronunciacion de la vocal"
-      japanese="う"
-      reading="U"
-      audioSrc="/audio/u.mp3"
-      audioLabel="Escuchar U"
-    />
-
-    <KanaKanjiDrawingPad client:visible size="wide" character="う" reading="u" strokes={2} />
-  </Page>
-
-  <Page>
-    ## Vocal え (E)
-
-    Cuarta vocal. Repite varias veces para fijar sonido y forma.
-
-    <AudioPhraseCard
-      client:visible
-      prompt="Pronunciacion de la vocal"
-      japanese="え"
-      reading="E"
-      audioSrc="/audio/e.mp3"
-      audioLabel="Escuchar E"
-    />
-
-    <KanaKanjiDrawingPad client:visible size="wide" character="え" reading="e" strokes={2} />
-  </Page>
-
-  <Page>
-    ## Vocal お (O)
-
-    Ultima vocal del grupo base.
-
-    <AudioPhraseCard
-      client:visible
-      prompt="Pronunciacion de la vocal"
-      japanese="お"
-      reading="O"
-      audioSrc="/audio/o.mp3"
-      audioLabel="Escuchar O"
-    />
-
-    <KanaKanjiDrawingPad client:visible size="wide" character="お" reading="o" strokes={3} />
-  </Page>
-
-  <Page>
-    ## Practica guiada
-
-    Frase objetivo de practica:
-
-    <div class="my-8 p-8 rounded-3xl text-center border border-[#F43F5E]/20 bg-[#F43F5E]/5">
-      <p class="text-4xl font-bold mb-2">れんしゅうしましょう。</p>
-      <p class="text-xl font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
-        <TermTooltip client:visible term="Renshuu shimashou" reading="れんしゅうしましょう" meaning="Practiquemos." example="Expresion para invitar a practicar juntos." />
-      </p>
-      <p class="text-base text-zinc-500 dark:text-zinc-400 mb-0">Practiquemos</p>
+    <div class="p-6 my-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-xl border border-zinc-100 dark:border-zinc-800 text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-tr from-[#F43F5E]/5 to-transparent"></div>
+      <div class="relative z-10">
+        <div class="text-6xl mb-4 text-[#F43F5E]">あ</div>
+        <p class="text-sm font-bold text-zinc-600 dark:text-zinc-300">Este es el Hiragana "A"</p>
+        <p class="text-xs text-zinc-500 mt-2 max-w-sm mx-auto">Toma nota de su fluidez y sus curvas, que difieren completamente de los trazos rectos del Katakana.</p>
+      </div>
     </div>
 
-    Repite esta frase en voz alta 2 o 3 veces y despues practica el siguiente mini dialogo.
-
-    <InfoCallout title="Secuencia guiada" icon="info">
-      Sigue estos 7 pasos en orden. Si no entiendes una frase, pasa el cursor sobre ella.
+    <InfoCallout title="¿Por qué no usar solo Hiragana?" variant="neutral" icon="info">
+      Como Japón **no usa espacios entre palabras**, leer una larga oración escrita solo en letras hiragana continuas sería como descifrar un gran acertijo ("megustaelcafédenicaragua"). Los kanjis funcionan visualmente como separadores para que tus ojos reconozcan los bloques de significado al instante.
     </InfoCallout>
-
-    1. <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Inicio recomendado en clase." />.
-    2. <TermTooltip client:visible term="Hajimemashite" reading="はじめまして" meaning="Mucho gusto." example="Se usa al conocer a alguien por primera vez." />.
-    3. <TermTooltip client:visible term="Watashi wa ___ desu" reading="わたしは ___ です" meaning="Me llamo / Soy ___." example="Frase base para presentarte." />.
-    4. <TermTooltip client:visible term="Douzo yoroshiku" reading="どうぞよろしく" meaning="Mucho gusto / Quedo a tu cuidado." example="Cierre amable de la presentacion." />.
-    5. <TermTooltip client:visible term="Arigatou gozaimasu" reading="ありがとうございます" meaning="Muchas gracias (formal)." example="Agradecimiento educado." />.
-    6. <TermTooltip client:visible term="Sumimasen" reading="すみません" meaning="Disculpe / Perdon." example="Para disculparte o pedir atencion con respeto." />.
-    7. <TermTooltip client:visible term="Jaa, mata" reading="じゃあ、また" meaning="Nos vemos luego." example="Cierre casual y natural." />.
-
-    ### Conversacion completa sugerida
-
-    - A: <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Inicio educado de conversación en clase." />.
-    - B: <TermTooltip client:visible term="Ohayou gozaimasu" reading="おはようございます" meaning="Buenos dias (formal)." example="Respuesta esperada al saludo." />.
-    - A: <TermTooltip client:visible term="Hajimemashite. Watashi wa Maria desu. Douzo yoroshiku." reading="はじめまして。わたしは Maria です。どうぞよろしく。" meaning="Mucho gusto. Me llamo Maria. Encantada." example="Presentación completa para primer encuentro." />.
-    - B: <TermTooltip client:visible term="Kochira koso, yoroshiku" reading="こちらこそ、よろしく" meaning="Igualmente, mucho gusto." example="Respuesta comun despues de 'douzo yoroshiku'." />. <TermTooltip client:visible term="Arigatou gozaimasu" reading="ありがとうございます" meaning="Muchas gracias (formal)." example="Agradecimiento educado durante la interacción." />.
-    - A: <TermTooltip client:visible term="Mou ichido onegaishimasu" reading="もういちど おねがいします" meaning="Una vez mas, por favor." example="Para pedir repeticion de forma amable." />.
-    - B: <TermTooltip client:visible term="Hai. Jaa, mata." reading="はい。じゃあ、また。" meaning="Sí. Nos vemos luego." example="Cierre breve y natural de la conversación." />.
   </Page>
 
   <Page>
-    ## Repaso rapido con tarjetas
+    ## La Mezcla Perfecta
+
+    Mira cómo conviven en armonía en una sola oración. Pasa el cursor por cada bloque para ver su función:
+
+    <div class="my-8 p-6 rounded-2xl bg-white dark:bg-zinc-900 border-2 border-[#F43F5E]/10 shadow-sm text-center">
+      <p class="text-2xl font-bold mb-4 tracking-wide flex flex-wrap justify-center items-center gap-x-1 gap-y-2">
+        <span class="text-[#F43F5E]"><TermTooltip client:visible term="私" reading="Watashi" meaning="Yo" /></span>
+        <TermTooltip client:visible term="は" reading="wa" meaning="Partícula de tema (indica de qué hablamos)" />
+        <span class="text-blue-500"><TermTooltip client:visible term="ニカラグア" reading="Nikaragua" meaning="Nicaragua" /></span>
+        <TermTooltip client:visible term="の" reading="no" meaning="Partícula de posesión (de)" />
+        <span class="text-blue-500"><TermTooltip client:visible term="コーヒー" reading="Koohii" meaning="Café" /></span>
+        <TermTooltip client:visible term="が" reading="ga" meaning="Partícula de sujeto (marca lo que nos gusta)" />
+        <span class="text-[#F43F5E]"><TermTooltip client:visible term="好" reading="Su" meaning="Raíz de gustar" /></span>
+        <TermTooltip client:visible term="きです" reading="ki desu" meaning="es / terminación de gustar" />
+      </p>
+      
+      <div class="mb-6 p-3 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg inline-block text-center">
+        <p class="text-sm font-medium text-zinc-600 dark:text-zinc-400 mb-1 italic tracking-widest">Watashi wa Nikaragua no koohii ga suki desu</p>
+        <p class="text-lg font-bold text-[#F43F5E]">"Me gusta el café de Nicaragua"</p>
+      </div>
+
+      <div class="space-y-2 text-sm text-left border-t border-zinc-100 dark:border-zinc-800 pt-4">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-[#F43F5E]"></span>
+          <p><strong><TermTooltip client:visible term="漢字" reading="Kanji" meaning="Ideogramas" />:</strong> <TermTooltip client:visible term="私" reading="Watashi" meaning="Yo" /> y <TermTooltip client:visible term="好" reading="Su" meaning="Gustar" /> (Significado).</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+          <p><strong><TermTooltip client:visible term="カタカナ" reading="Katakana" meaning="Extranjero" />:</strong> <TermTooltip client:visible term="ニカラグア" reading="Nikaragua" meaning="Nicaragua" /> y <TermTooltip client:visible term="コーヒー" reading="Koohii" meaning="Café" /> (Préstamos).</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-zinc-400"></span>
+          <p><strong><TermTooltip client:visible term="ひらがな" reading="Hiragana" meaning="Nativo" />:</strong> <TermTooltip client:visible term="は" reading="wa" /> , <TermTooltip client:visible term="の" reading="no" /> , <TermTooltip client:visible term="が" reading="ga" /> y <TermTooltip client:visible term="きです" reading="ki desu" /> (Gramática).</p>
+        </div>
+      </div>
+    </div>
+  </Page>
+
+  <Page>
+    <div class="mb-4 flex items-center gap-2">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#F43F5E] bg-[#F43F5E]/10 px-2 py-0.5 rounded-full">Vocal 1 de 5</span>
+      <span class="text-xs text-zinc-400">Hiragana · あ行</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-3">
+        <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 flex flex-col items-center text-center shadow-sm flex-1 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#F43F5E]/5 to-transparent" />
+          <div class="relative z-10 flex flex-col items-center text-center w-full flex-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-3">Hiragana · Silabario nativo</p>
+            <div class="text-8xl font-bold text-[#F43F5E] leading-none mb-4">あ</div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl font-bold text-zinc-700 dark:text-zinc-200">A</span>
+              <span class="w-px h-6 bg-zinc-200 dark:bg-zinc-700"></span>
+              <span class="text-sm text-zinc-500">3 trazos</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">Primera letra del japonés. Suena como la "a" en español.</p>
+          </div>
+        </div>
+        <AudioPhraseCard client:visible prompt="Escucha la pronunciación" japanese="あ" reading="A" audioSrc="/audio/a.mp3" audioLabel="Escuchar A" />
+      </div>
+      <div>
+        <KanaKanjiDrawingPad client:visible character="あ" reading="a" strokes={3} />
+      </div>
+    </div>
+  </Page>
+
+  <Page>
+    <div class="mb-4 flex items-center gap-2">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#F43F5E] bg-[#F43F5E]/10 px-2 py-0.5 rounded-full">Vocal 2 de 5</span>
+      <span class="text-xs text-zinc-400">Hiragana · あ行</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-3">
+        <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 flex flex-col items-center text-center shadow-sm flex-1 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#F43F5E]/5 to-transparent" />
+          <div class="relative z-10 flex flex-col items-center text-center w-full flex-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-3">Hiragana · Silabario nativo</p>
+            <div class="text-8xl font-bold text-[#F43F5E] leading-none mb-4">い</div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl font-bold text-zinc-700 dark:text-zinc-200">I</span>
+              <span class="w-px h-6 bg-zinc-200 dark:bg-zinc-700"></span>
+              <span class="text-sm text-zinc-500">2 trazos</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">Dos trazos paralelos curvos. Suena como la "i" en español.</p>
+          </div>
+        </div>
+        <AudioPhraseCard client:visible prompt="Escucha la pronunciación" japanese="い" reading="I" audioSrc="/audio/i.mp3" audioLabel="Escuchar I" />
+      </div>
+      <div>
+        <KanaKanjiDrawingPad client:visible character="い" reading="i" strokes={2} />
+      </div>
+    </div>
+  </Page>
+
+  <Page>
+    <div class="mb-4 flex items-center gap-2">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#F43F5E] bg-[#F43F5E]/10 px-2 py-0.5 rounded-full">Vocal 3 de 5</span>
+      <span class="text-xs text-zinc-400">Hiragana · あ行</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-3">
+        <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 flex flex-col items-center text-center shadow-sm flex-1 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#F43F5E]/5 to-transparent" />
+          <div class="relative z-10 flex flex-col items-center text-center w-full flex-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-3">Hiragana · Silabario nativo</p>
+            <div class="text-8xl font-bold text-[#F43F5E] leading-none mb-4">う</div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl font-bold text-zinc-700 dark:text-zinc-200">U</span>
+              <span class="w-px h-6 bg-zinc-200 dark:bg-zinc-700"></span>
+              <span class="text-sm text-zinc-500">2 trazos</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">Su curva superior es única. ¡Más cerrada que la "u" en español!</p>
+          </div>
+        </div>
+        <AudioPhraseCard client:visible prompt="Escucha la pronunciación" japanese="う" reading="U" audioSrc="/audio/u.mp3" audioLabel="Escuchar U" />
+      </div>
+      <div>
+        <KanaKanjiDrawingPad client:visible character="う" reading="u" strokes={2} />
+      </div>
+    </div>
+  </Page>
+
+  <Page>
+    <div class="mb-4 flex items-center gap-2">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#F43F5E] bg-[#F43F5E]/10 px-2 py-0.5 rounded-full">Vocal 4 de 5</span>
+      <span class="text-xs text-zinc-400">Hiragana · あ行</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-3">
+        <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 flex flex-col items-center text-center shadow-sm flex-1 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#F43F5E]/5 to-transparent" />
+          <div class="relative z-10 flex flex-col items-center text-center w-full flex-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-3">Hiragana · Silabario nativo</p>
+            <div class="text-8xl font-bold text-[#F43F5E] leading-none mb-4">え</div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl font-bold text-zinc-700 dark:text-zinc-200">E</span>
+              <span class="w-px h-6 bg-zinc-200 dark:bg-zinc-700"></span>
+              <span class="text-sm text-zinc-500">2 trazos</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">Un trazo horizontal y uno curvo. Suena como la "e" en español.</p>
+          </div>
+        </div>
+        <AudioPhraseCard client:visible prompt="Escucha la pronunciación" japanese="え" reading="E" audioSrc="/audio/e.mp3" audioLabel="Escuchar E" />
+      </div>
+      <div>
+        <KanaKanjiDrawingPad client:visible character="え" reading="e" strokes={2} />
+      </div>
+    </div>
+  </Page>
+
+  <Page>
+    <div class="mb-4 flex items-center gap-2">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#F43F5E] bg-[#F43F5E]/10 px-2 py-0.5 rounded-full">Vocal 5 de 5</span>
+      <span class="text-xs text-zinc-400">Hiragana · あ行</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-3">
+        <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 flex flex-col items-center text-center shadow-sm flex-1 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#F43F5E]/5 to-transparent" />
+          <div class="relative z-10 flex flex-col items-center text-center w-full flex-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-3">Hiragana · Silabario nativo</p>
+            <div class="text-8xl font-bold text-[#F43F5E] leading-none mb-4">お</div>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl font-bold text-zinc-700 dark:text-zinc-200">O</span>
+              <span class="w-px h-6 bg-zinc-200 dark:bg-zinc-700"></span>
+              <span class="text-sm text-zinc-500">3 trazos</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">¡Cuidado! Se parece a あ, pero sus trazos son distintos. Suena como la "o" en español.</p>
+          </div>
+        </div>
+        <AudioPhraseCard client:visible prompt="Escucha la pronunciación" japanese="お" reading="O" audioSrc="/audio/o.mp3" audioLabel="Escuchar O" />
+      </div>
+      <div>
+        <KanaKanjiDrawingPad client:visible character="お" reading="o" strokes={3} />
+      </div>
+    </div>
+  </Page>
+
+  <Page>
+    ## Repaso rápido con tarjetas
+
+    Domina los caracteres y saludos antes del examen.
 
     <FlashcardDeck client:visible size="wide" showReadingOnFront={true} cards={[
-      { japanese: "おはよう", reading: "Ohayou", translation: "Buenos dias (informal)", hint: { term: "Informal", meaning: "Se usa con amigos o personas de confianza.", example: "Al llegar al salon con tus companeros." } },
-      { japanese: "おはようございます", reading: "Ohayou gozaimasu", translation: "Buenos dias (formal)", hint: { term: "Formal", meaning: "Version respetuosa para profesor o contexto laboral.", example: "Al saludar a un profesor." } },
-      { japanese: "こんにちは", reading: "Konnichiwa", translation: "Hola / Buenas tardes", audioSrc: "/audio/konnichiwa.mp3", hint: { term: "Uso", meaning: "Muy comun desde mediodia hasta la tarde." } },
-      { japanese: "こんばんは", reading: "Konbanwa", translation: "Buenas noches", hint: { term: "Contexto", meaning: "Se usa cuando encuentras a alguien de noche." } },
-      { japanese: "ありがとう", reading: "Arigatou", translation: "Gracias", hint: { term: "Cercania", meaning: "Forma casual de agradecer." } },
-      { japanese: "ありがとうございます", reading: "Arigatou gozaimasu", translation: "Gracias (formal)", hint: { term: "Cortesia", meaning: "Forma recomendada cuando no conoces a la persona." } },
-      { japanese: "ごめん", reading: "Gomen", translation: "Perdon (casual)", hint: { term: "Disculpa casual", meaning: "Suena cercano y directo." } },
-      { japanese: "すみません", reading: "Sumimasen", translation: "Disculpe / Perdon (formal)", hint: { term: "Disculpa formal", meaning: "Sirve para pedir perdon o llamar la atencion." } },
-      { japanese: "さようなら", reading: "Sayounara", translation: "Adios", hint: { term: "Despedida formal", meaning: "Mas formal o para separaciones largas." } },
-      { japanese: "おつかれ", reading: "Otsukare", translation: "Buen trabajo", hint: { term: "Cultura", meaning: "Muy comun para cerrar el dia entre companeros." } },
-      { japanese: "はじめまして", reading: "Hajimemashite", translation: "Mucho gusto", hint: { term: "Primer encuentro", meaning: "Se usa al conocer a alguien por primera vez." } },
-      { japanese: "わたしは ___ です", reading: "Watashi wa ___ desu", translation: "Me llamo / Soy ___", hint: { term: "Base segura", meaning: "Frase estandar para presentarte en casi cualquier contexto." } },
-      { japanese: "どうぞよろしく", reading: "Douzo yoroshiku", translation: "Mucho gusto / Quedo a tu cuidado", hint: { term: "Cierre social", meaning: "Expresa buena disposicion al iniciar relacion." } },
-      { japanese: "お名前は？", reading: "Onamae wa?", translation: "Como te llamas?" },
+      { japanese: "漢字", reading: "Kanji", translation: "Ideogramas (Conceptos)" },
+      { japanese: "カタカナ", reading: "Katakana", translation: "Silabario extranjero" },
+      { japanese: "ひらがな", reading: "Hiragana", translation: "Silabario nativo" },
+      { japanese: "こんにちは", reading: "Konnichiwa", translation: "Hola / Tarde", audioSrc: "/audio/konnichiwa.mp3" },
+      { japanese: "ありがとうございます", reading: "Arigatou gozaimasu", translation: "Muchas gracias" },
       { japanese: "あ", reading: "A", translation: "Vocal A" },
       { japanese: "い", reading: "I", translation: "Vocal I" },
       { japanese: "う", reading: "U", translation: "Vocal U" },
@@ -433,69 +803,67 @@ import ModelResponseBuilder from '../../components/interactive/ModelResponseBuil
   </Page>
 
   <Page>
-    ## Examen del capitulo 1
+    ## Examen del capítulo 1
+
+    ¿Listo para desbloquear el siguiente nivel?
 
     <QuizModule client:visible questions={[
       {
-        text: "Cual usarias como 'Buenos dias' formal?",
-        options: ["Ohayou", "Ohayou gozaimasu", "Konnichiwa", "Gomen"],
-        correctAnswer: 1
+        text: "¿Cuál es la forma más segura y educada de decir 'Yo'?",
+        options: [
+          { japanese: "ぼく", reading: "Boku", meaning: "Yo — masculino e informal. Chicos jóvenes o casual entre amigos." },
+          { japanese: "おれ", reading: "Ore", meaning: "Yo — muy masculino y rudo. Suena brusco o agresivo." },
+          { japanese: "わたし", reading: "Watashi", meaning: "Yo — neutro y educado. Correcto para cualquier situación." },
+          { japanese: "わたくし", reading: "Watakushi", meaning: "Yo — hiperformal. Se usa en contextos de negocios o muy ceremoniosos." }
+        ],
+        correctAnswer: 2,
+        explanation: "[[わたし|Watashi|Yo (neutro)]] es el pronombre seguro para cualquier situación. [[ぼく|boku|Yo (masculino informal)]] es informal para chicos, [[おれ|ore|Yo (rudo)]] suena rudo, y [[わたくし|watakushi|Yo (hiperformal)]] es para negocios."
       },
       {
-        text: "Que frase usas para presentarte de forma base y educada?",
-        options: ["Otsukare", "Watashi wa ___ desu", "Jaa, mata", "Gomen"],
-        correctAnswer: 1
+        text: "¿Qué sistema de escritura se caracteriza por trazos curvos y elegantes?",
+        options: [
+          { japanese: "漢字", reading: "Kanji", meaning: "Ideogramas heredados del chino. Representan conceptos completos." },
+          { japanese: "ひらがな", reading: "Hiragana", meaning: "Silabario nativo japonés. Trazos curvos y fluidos — el primero que aprenderás." },
+          { japanese: "カタカナ", reading: "Katakana", meaning: "Silabario anguloso. Usado principalmente para palabras extranjeras." },
+          "Romaji"
+        ],
+        correctAnswer: 1,
+        explanation: "El [[ひらがな|Hiragana|Silabario de trazos curvos]] es el primer sistema que aprenderás. Los [[漢字|Kanji|Ideogramas]] son complejos y el [[カタカナ|Katakana|Silabario anguloso para extranjerismos]] es más recto."
       },
       {
-        text: "Que saludo usas para encontrarte con alguien de noche?",
-        options: ["Konbanwa", "Sayounara", "Arigatou", "Ja ne"],
-        correctAnswer: 0
+        text: "¿Qué frase usas la PRIMERA vez que conoces a alguien?",
+        options: [
+          { japanese: "こんにちは", reading: "Konnichiwa", meaning: "Hola / Buenos días-tardes. Saludo general del día." },
+          { japanese: "ありがとう", reading: "Arigatou", meaning: "Gracias. Expresión de agradecimiento." },
+          { japanese: "はじめまして", reading: "Hajimemashite", meaning: "Mucho gusto. Solo para la primera vez que conoces a alguien." },
+          { japanese: "すみません", reading: "Sumimasen", meaning: "Disculpe / Perdón / Gracias. Expresión de cortesía versátil." }
+        ],
+        correctAnswer: 2,
+        explanation: "[[はじめまして|Hajimemashite|Mucho gusto (primera vez)]] significa literalmente 'es la primera vez'. [[こんにちは|Konnichiwa|Hola]] es solo para decir hola durante el día."
       },
       {
-        text: "Que significa 'Hajimemashite'?",
-        options: ["Buenas noches", "Disculpe", "Mucho gusto", "Hasta luego"],
-        correctAnswer: 2
-      },
-      {
-        text: "Que dice este audio?",
-        audioSrc: "/audio/konnichiwa.mp3",
-        audioLabel: "Escuchar frase",
-        options: ["Ohayou", "Konnichiwa", "Sumimasen", "Arigatou"],
-        correctAnswer: 1
-      },
-      {
-        text: "Cual es la opcion mas segura para disculparte en un contexto formal?",
-        options: ["Gomen", "Ja ne", "Sumimasen", "Ohayou"],
-        correctAnswer: 2
-      },
-      {
-        text: "Si quieres agradecer de forma formal, cual eliges?",
-        options: ["Arigatou", "Arigatou gozaimasu", "Sumimasen", "Otsukare"],
-        correctAnswer: 1
-      },
-      {
-        text: "Si terminas una conversacion y quieres decir 'nos vemos luego', cual eliges?",
-        options: ["Jaa, mata", "Hajimemashite", "Onamae wa?", "Watakushi wa ___ to moushimasu"],
-        correctAnswer: 0
-      },
-      {
-        text: "Que vocal suena en este audio?",
-        audioSrc: "/audio/a.mp3",
-        audioLabel: "Escuchar vocal",
-        options: ["A", "I", "U", "E"],
-        correctAnswer: 0
+        text: "¿Cuál de estos sistemas representa conceptos o ideas completas?",
+        options: [
+          { japanese: "ひらがな", reading: "Hiragana", meaning: "Silabario nativo japonés. 46 sílabas básicas." },
+          { japanese: "カタカナ", reading: "Katakana", meaning: "Silabario para extranjerismos y énfasis." },
+          { japanese: "漢字", reading: "Kanji", meaning: "Ideogramas chino-japoneses. Cada uno es un concepto — ej: 水 = agua." },
+          "Romaji"
+        ],
+        correctAnswer: 2,
+        explanation: "Los [[漢字|Kanji|Ideogramas]] representan ideas completas, como [[水|mizu|Agua]]. El hiragana y katakana solo representan sonidos (sílabas)."
       },
       {
         text: "Escucha el audio y elige el hiragana correcto",
         audioSrc: "/audio/u.mp3",
         audioLabel: "Escuchar vocal",
-        options: ["あ", "い", "う", "え"],
-        correctAnswer: 2
-      },
-      {
-        text: "Cual de estas vocales Hiragana representa el sonido 'A'?",
-        options: ["あ", "い", "う", "え"],
-        correctAnswer: 0
+        options: [
+          { japanese: "あ", reading: "A", meaning: "Primera vocal del Hiragana. 3 trazos." },
+          { japanese: "い", reading: "I", meaning: "Segunda vocal del Hiragana. 2 trazos paralelos." },
+          { japanese: "う", reading: "U", meaning: "Tercera vocal. Más cerrada que la 'u' en español." },
+          { japanese: "え", reading: "E", meaning: "Cuarta vocal del Hiragana. 2 trazos." }
+        ],
+        correctAnswer: 2,
+        explanation: "El sonido que escuchaste es la tercera vocal: [[う|U|Vocal cerrada]]. Las demás son [[あ|a]], [[い|i]] y [[え|e]]."
       }
     ]} />
   </Page>
